@@ -38,7 +38,7 @@ public class ILServiceImpl implements ILService {
 		logger.info("serviceRequest() start");
 		NewBusinessModel newBusinessModel = policyObjectPopulator(json);
 		String createClientSoapEnvelop = newBusinessProposalGenerator.buildCreateClientRequest(newBusinessModel);
-		logger.info("=========Create Client Soap Envelop=========");
+		logger.info("=========Create Client Soap Envelop==========");
 		SOAPBody clientResponseSoapBody = invokeILSoapService(createClientSoapEnvelop, IntegrationConstants.CLIENT_URL);
 		String clientNumber = getClientNumberFromSoapBody(clientResponseSoapBody);
 		logger.info("=====Cleint Number :: [{}]",clientNumber);
