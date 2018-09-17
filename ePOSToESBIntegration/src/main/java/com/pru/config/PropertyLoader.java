@@ -25,7 +25,7 @@ public class PropertyLoader {
 			policyProposalPropConfig = ParameterTool
 					.fromPropertiesFile(path + IntegrationConstants.NBS_MAPPING_PROPERTIES);
 			flinkPropConfig = ParameterTool
-					.fromPropertiesFile(path + IntegrationConstants.NBS_MAPPING_PROPERTIES);
+					.fromPropertiesFile(path + IntegrationConstants.FLINK_CONFIG_PROPERTIES);
 			
 		} catch (IOException e) {
 			logger.error("Error while loading property in PropertyLoader :: {}",e);
