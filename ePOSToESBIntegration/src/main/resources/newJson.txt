@@ -1,0 +1,1254 @@
+{
+	"id": "4ca88b7f-4f07-43f8-97ae-146008b94694",
+	"createdAt": "2018-08-06T14:42:39.712Z",
+	"agentProfile": {
+		"code": "70014144",
+		"name": "Zhqigclkxlruj Vhjaqg",
+		"email": "bryan.a.arabejo@prulifeuk.com.ph",
+		"gender": "FEMALE",
+		"level": "PREMIERE",
+		"persistency": 91,
+		"branch": {
+			"code": "00299",
+			"name": "JADEITE",
+			"area": "Metro Manila 2.1"
+		},
+		"status": "ACTIVE",
+		"avatarUri": "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg",
+		"licences": [{
+			"code": "9103663-0802294-00000",
+			"type": "LIFE",
+			"expiryDate": "2018-12-30T22:00:00Z"
+		},
+		{
+			"code": "9103663-0802294-00021",
+			"type": "VUL",
+			"expiryDate": "2018-12-30T22:00:00Z"
+		}],
+		"limits": [{
+			"type": "VERY_HIGH",
+			"floor": 0,
+			"ceiling": 40,
+			"value": 6000000
+		},
+		{
+			"type": "VERY_HIGH",
+			"floor": 41,
+			"ceiling": 50,
+			"value": 4000000
+		},
+		{
+			"type": "VERY_HIGH",
+			"floor": 51,
+			"ceiling": 60,
+			"value": 1500000
+		},
+		{
+			"type": "VERY_HIGH",
+			"floor": 61,
+			"ceiling": 70,
+			"value": 0
+		}],
+		"claims": ["ApplicationSender"]
+	},
+	"formVersion": "12.2.13",
+	"status": "in-progress",
+	"riskProfile": {
+		"fundWaiver": false,
+		"riskScore": -1,
+		"investorRiskType": "Variable or unit-linked product cannot be recommended",
+		"investorRiskTypeDefinition": ""
+	},
+	"personalInfo": {
+		"0": {
+			"id": "983ee00c-d554-4753-baf6-f084ea30c19b",
+			"createdAt": "2018-08-06T14:42:39.712Z",
+			"name": {
+				"title": "MR",
+				"first": "John",
+				"last": "Doe"
+			},
+			"dateOfBirth": "1978-08-06T00:00:00.000Z",
+			"mobileCountryCode": "+256",
+			"mobile": "9087890876",
+			"email": "john.doe@yopmail.com",
+			"gender": "M",
+			"city": "Lusaka",
+			"additionalPersonalInformation": {
+				"cityPermanent": "Lusaka",
+				"civilStatus": "S",
+				"nationality": "35",
+				"identificationType": "TIN",
+				"identificationNumber": "7890765",
+				"addressPermanent": "4th street",
+				"zipcodePermanent": "8987",
+				"countryPermanent": "143",
+				"cityPermanentCustom": "Entebbe",
+				"preferredMailingAddress": "present",
+				"planToChangeAddress": false,
+				"haveBeneficialOwner": false
+			},
+			"previousInsurance": {
+				"PolRep": false,
+				"hasProblemApplyForLifeInsuranceOrReinstatement": false,
+				"hasPendingApplicationInOtherInsuranceCompanies": false,
+				"hasInsuranceInForce": false,
+				"hasAnyExistingInsuranceWillInForce": false,
+				"willUsePolicyLoanPaidInsurancePremiums": false
+			},
+			"workPay": {
+				"occupations": {
+					"0": {
+						"city": 13,
+						"employment": "employed",
+						"occupation": "ACCT",
+						"businessNature": "Accommodation and Food Services",
+						"employerName": "ABC Corp\t",
+						"addressBusiness": "4th street",
+						"countryBusiness": "143",
+						"cityCustom": "Entebbe",
+						"zipcodeBusiness": "9876",
+						"occupationChange": false
+					},
+					"1": {
+						
+					}
+				},
+				"incomeBeforeTax": 180000,
+				"netWorth": 2500000,
+				"sourcesOfFunds": "salary"
+			},
+			"documents": {
+				"medical": {
+					"uploadMedicalDocuments": true
+				}
+			},
+			"age": 40,
+			"lifestyle": {
+				"displayDivingAndJumpingForm": false,
+				"displayRacingForm": false,
+				"displayMountaineerForm": false,
+				"displayGeneralSportForm": false,
+				"displayAviationForm": false,
+				"flownAircraft": false,
+				"dangerousSports": false,
+				"divingAndJumping": false,
+				"motorcycle": false,
+				"racing": false,
+				"mountaineer": false,
+				"mountaineering": {
+					
+				},
+				"otherHazardousSport": false,
+				"generalSports": {
+					
+				},
+				"smoke": false,
+				"alcohol": false,
+				"drugs": false,
+				"politics": false,
+				"riskToAids": false
+			},
+			"medical": {
+				"requireDiabetesDetails": null,
+				"requireRespiratoryDetails": false,
+				"height": "1.7",
+				"estimateOrMeasureHeight": "ME",
+				"weight": "65.8",
+				"estimateOrMeasureWeight": "ES",
+				"weightLoss": false,
+				"hospital": false,
+				"observationDiagnosisOperationTreatment": false,
+				"surgery": false,
+				"positiveToAidsAntibodies": false,
+				"respiratoryDiseaseOrDisorder": false,
+				"disorderOrDiseaseOfHeartOrBloodVessels": false,
+				"stomachIntestinesBowelRectumAppendixLiverGallBladderDiseaseDisorder": false,
+				"highBPOrHeartOrCirculatoryDisease": false,
+				"eyesEarsNoseThroatDiseaseDisorder": false,
+				"brainOrNervousDiseaseDisorder": false,
+				"backSpineBonesJointsMusclesDiseaseOrDisorder": false,
+				"anySeriousIllnessInJurySurgeryNotMentioned": false
+			},
+			"family": {
+				"isAssuredForm": true,
+				"isNotSiblingAndAssuredForm": true,
+				"IsFatherAlive": true,
+				"famileDisease": false,
+				"haveSibling": false,
+				"siblings": {
+					"0": {
+						"hasIllness": false
+					}
+				}
+			},
+			"phone": "9098786756",
+			"address": "4th street",
+			"country": "143",
+			"cityCustom": "Entebbe",
+			"zipcode": "7865",
+			"phoneCountryCode": "+256",
+			"agentReport": {
+				"howLongKnown": 1,
+				"isRelatedTo": false,
+				"isRelatedToFellowActiveAgent": false,
+				"distinctMark": "One eye blind",
+				"knowAnyOtherCondition": false,
+				"anyChangeInExistingInsurance": false,
+				"premiumPaidByLoanOrWithdrawal": false
+			}
+		}
+	},
+	"personalInfoSummary": {
+		"policyHolderIndex": "0",
+		"assuredIndex": "0"
+	},
+	"quotation": {
+		"inQuotationStage": false,
+		"events": {
+			"topups": {
+				
+			},
+			"withdrawals": {
+				
+			}
+		},
+		"productMode": "Coverage",
+		"period": 5,
+		"currency": "UGX",
+		"insuredAmount": 4436800,
+		"totalModalPremium": 665521,
+		"paymentMode": "A",
+		"insuredAmountRecommended": 443680,
+		"displayedBaseModalPremium": 665521,
+		"displayedInsuredAmount": 4436800,
+		"planCode": "elite",
+		"paymentModeNoun": "Year",
+		"inBudget": false,
+		"config": {
+			"riders": {
+				"LCW": {
+					"desc": "Life Care Waiver",
+					"available": true,
+					"code": "LCW"
+				},
+				"LCAP": {
+					"code": "LCAP",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Life Care Advance Plus",
+					"available": true
+				},
+				"PA-DI": {
+					"desc": "Personal Accident - Double Indemnity",
+					"available": true,
+					"code": "PA-DI"
+				},
+				"ADD": {
+					"code": "ADD",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Accidental Death and Disablement",
+					"available": true
+				},
+				"PT": {
+					"code": "PT",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Payor Term",
+					"available": true
+				},
+				"PA-MA": {
+					"desc": "Personal Accident - Murder & Assault",
+					"available": true,
+					"code": "PA-MA"
+				},
+				"CCB": {
+					"code": "CCB",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Crisis Cover Benefit",
+					"available": true
+				},
+				"HI-DHI": {
+					"code": "HI-DHI",
+					"insuredAmount": {
+						"options": {
+							"1": {
+								"desc": "1000.00",
+								"available": true,
+								"code": "1"
+							},
+							"2": {
+								"desc": "1500.00",
+								"available": true,
+								"code": "2"
+							},
+							"3": {
+								"desc": "2000.00",
+								"available": true,
+								"code": "3"
+							},
+							"4": {
+								"desc": "2500.00",
+								"available": true,
+								"code": "4"
+							},
+							"5": {
+								"desc": "3000.00",
+								"available": true,
+								"code": "5"
+							},
+							"6": {
+								"desc": "3500.00",
+								"available": true,
+								"code": "6"
+							},
+							"7": {
+								"desc": "4000.00",
+								"available": true,
+								"code": "7"
+							},
+							"8": {
+								"desc": "4500.00",
+								"available": true,
+								"code": "8"
+							},
+							"9": {
+								"desc": "5000.00",
+								"available": true,
+								"code": "9"
+							}
+						}
+					},
+					"desc": "Hospital Income - Daily Hospital Income",
+					"available": true
+				},
+				"HI-ICU": {
+					"desc": "Hospital Income - Intensive Care Unit",
+					"available": true,
+					"code": "HI-ICU"
+				},
+				"LCB": {
+					"code": "LCB",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Life Care Benefit",
+					"available": true
+				},
+				"WPTPD": {
+					"desc": "Waiver of Premium due to Total and Permanent Disability Beneifit",
+					"available": true,
+					"code": "WPTPD"
+				},
+				"LCP": {
+					"code": "LCP",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Life Care Plus",
+					"available": true
+				},
+				"PA-ADD": {
+					"code": "PA-ADD",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Personal Accident - Accidental Death and Disablement",
+					"available": true
+				},
+				"MLCP": {
+					"code": "MLCP",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Multiple Life Care Plus",
+					"available": true
+				},
+				"PA-AMR": {
+					"desc": "Personal Accident - Accidental Medical Reimbursement",
+					"available": true,
+					"code": "PA-AMR"
+				},
+				"HI-LTH": {
+					"desc": "Hospital Income - Long-Term Hospitalization",
+					"available": true,
+					"code": "HI-LTH"
+				},
+				"TPD": {
+					"code": "TPD",
+					"insuredAmount": {
+						"default": 60000
+					},
+					"desc": "Total and Permanent Disability",
+					"available": true
+				},
+				"HI-SER": {
+					"desc": "Hospital Income - Surgery Expenser Reimbursement",
+					"available": true,
+					"code": "HI-SER"
+				},
+				"PA-ATPD": {
+					"desc": "Personal Accident - Accidental Total and Permanent Disability",
+					"available": true,
+					"code": "PA-ATPD"
+				},
+				"AT": {
+					"code": "AT",
+					"insuredAmount": {
+						"default": 180000
+					},
+					"desc": "Additional Term",
+					"available": true
+				}
+			},
+			"requestedAt": 1533616937001,
+			"assuredInsuranceAge": 40,
+			"maximumBaseAnnualPremium": 887360,
+			"minimumBaseAnnualPremium": 147894
+		},
+		"selectedRiders": {
+			
+		},
+		"investmentPriority": 70,
+		"baseModalPremium": 665521,
+		"baseAnnualPremium": 665521,
+		"result": {
+			"benefitIllustration": [{
+				"topups": 0,
+				"premium": 665521,
+				"age": 41,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2019,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 1
+			},
+			{
+				"topups": 0,
+				"premium": 665521,
+				"age": 42,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2020,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 2
+			},
+			{
+				"topups": 0,
+				"premium": 665521,
+				"age": 43,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2021,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 3
+			},
+			{
+				"topups": 0,
+				"premium": 665521,
+				"age": 44,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2022,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 4
+			},
+			{
+				"topups": 0,
+				"premium": 665521,
+				"age": 45,
+				"premiumAllocation": 665521,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2023,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 5
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 46,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2024,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 6
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 47,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2025,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 7
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 48,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2026,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 8
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 49,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2027,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 9
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 50,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2028,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 10
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 51,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2029,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 11
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 52,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2030,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 12
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 53,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2031,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 13
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 54,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2032,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 14
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 55,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2033,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 15
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 56,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2034,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 16
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 57,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2035,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 17
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 58,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2036,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 18
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 59,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2037,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 19
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 60,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2038,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 20
+			},
+			{
+				"topups": 0,
+				"premium": 0,
+				"age": 65,
+				"premiumAllocation": 0,
+				"benefitValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"year": 2043,
+				"surrenderValue": {
+					"low": 0,
+					"high": 0,
+					"current": 0
+				},
+				"withdrawals": 0,
+				"policyYear": 25
+			}],
+			"benefitIllustrationMetadata": {
+				"illustrationValid": false
+			},
+			"annualInsuranceCharge": 0,
+			"assuredInsuranceAge": 40,
+			"baseAnnualPremiumAmount": 975013.4208000001,
+			"baseModalPremiumAmount": 975013.4208000001,
+			"requestedAt": 1533720746935,
+			"riderAnnualPremiumAmount": 0,
+			"riderModalPremiumAmount": 0,
+			"riders": {
+				
+			},
+			"totalAnnualPremiumAmount": 975013.4208000001,
+			"totalModalPremiumAmount": 975013.4208000001
+		},
+		"initialPaymentMethod": "CA",
+		"renewalPaymentMethod": "DD",
+		"hasOptedOutRiders": true
+	},
+	"purchaseReview": {
+		"termsAndCondition": {
+			"policyHolder": {
+				
+			},
+			"assured": {
+				
+			},
+			"dataPrivacy": {
+				"policyHolder": {
+					
+				},
+				"assured": {
+					
+				}
+			}
+		},
+		"signatures": {
+			"policyHolder": null,
+			"agent": null,
+			"meta": {
+				"width": "1524px",
+				"height": "400px"
+			}
+		}
+	},
+	"beneficiary": {
+		"basicPlan": {
+			"0": {
+				"beneficiaryType": "primary",
+				"beneficiaryDesignation": "revocable",
+				"relationship": "spouse",
+				"birthCity": 13,
+				"nationality": "35",
+				"city": 13,
+				"name": {
+					"title": "Mrs",
+					"last": "Doe",
+					"first": "Mary",
+					"middle": "M"
+				},
+				"dateOfBirth": "1982-08-06T00:00:00.000Z",
+				"gender": "F",
+				"beneficiaryPercentage": "100",
+				"countryOfBirth": "143",
+				"birthCityCustom": "Entebbe",
+				"address": "4th street",
+				"country": "143",
+				"cityCustom": "Entebbe",
+				"zipcode": "7865"
+			}
+		}
+	},
+	"product": {
+		"planName": "Pru EduSave",
+		"secondary": {
+			"code": "paa",
+			"name": ""
+		},
+		"planCode": "elite",
+		"availableRiders": [],
+		"availableFunds": []
+	},
+	"needs": {
+		"shortfall": {
+			"isShortfallAddressed": 1,
+			"shortfallSA": 1,
+			"shortfallLBFV": 1,
+			"shortfallRiders": [],
+			"shortfallRider": 0
+		},
+		"priority": "education",
+		"education": {
+			"estimatedEducationCost": 493680,
+			"shortFall": 443680,
+			"grossIncome": 15000,
+			"grossExpenses": 8000,
+			"dependentsAge": 17,
+			"preferredCollege": "AMAComputerUniversity",
+			"provisionsMade": 50000
+		},
+		"shortFallRecommendation": 443680,
+		"budgetMin": 5000,
+		"budgetMax": 6000
+	},
+	"policyHolder": {
+		"id": "983ee00c-d554-4753-baf6-f084ea30c19b",
+		"createdAt": "2018-08-06T14:42:39.712Z",
+		"name": {
+			"title": "MR",
+			"first": "John",
+			"last": "Doe"
+		},
+		"dateOfBirth": "1978-08-06T00:00:00.000Z",
+		"mobileCountryCode": "+256",
+		"mobile": "9087890876",
+		"email": "john.doe@yopmail.com",
+		"gender": "M",
+		"city": 13,
+		"additionalPersonalInformation": {
+			"cityPermanent": "LUSAKA",
+			"civilStatus": "S",
+			"nationality": "35",
+			"identificationType": "TIN",
+			"identificationNumber": "7890765",
+			"addressPermanent": "4th street",
+			"zipcodePermanent": "8987",
+			"countryPermanent": "143",
+			"cityPermanentCustom": "Entebbe",
+			"preferredMailingAddress": "present",
+			"planToChangeAddress": false,
+			"haveBeneficialOwner": false
+		},
+		"previousInsurance": {
+			"PolRep": false,
+			"hasProblemApplyForLifeInsuranceOrReinstatement": false,
+			"hasPendingApplicationInOtherInsuranceCompanies": false,
+			"hasInsuranceInForce": false,
+			"hasAnyExistingInsuranceWillInForce": false,
+			"willUsePolicyLoanPaidInsurancePremiums": false
+		},
+		"workPay": {
+			"occupations": {
+				"0": {
+					"city": 13,
+					"employment": "employed",
+					"occupation": "ACCT",
+					"businessNature": "Accommodation and Food Services",
+					"employerName": "ABC Corp\t",
+					"addressBusiness": "4th street",
+					"countryBusiness": "143",
+					"cityCustom": "Entebbe",
+					"zipcodeBusiness": "9876",
+					"occupationChange": false
+				},
+				"1": {
+					
+				}
+			},
+			"incomeBeforeTax": 180000,
+			"netWorth": 2500000,
+			"sourcesOfFunds": "salary"
+		},
+		"documents": {
+			"medical": {
+				"uploadMedicalDocuments": true
+			}
+		},
+		"age": 40,
+		"lifestyle": {
+			"displayDivingAndJumpingForm": false,
+			"displayRacingForm": false,
+			"displayMountaineerForm": false,
+			"displayGeneralSportForm": false,
+			"displayAviationForm": false,
+			"flownAircraft": false,
+			"dangerousSports": false,
+			"divingAndJumping": false,
+			"motorcycle": false,
+			"racing": false,
+			"mountaineer": false,
+			"mountaineering": {
+				
+			},
+			"otherHazardousSport": false,
+			"generalSports": {
+				
+			},
+			"smoke": false,
+			"alcohol": false,
+			"drugs": false,
+			"politics": false,
+			"riskToAids": false
+		},
+		"medical": {
+			"requireDiabetesDetails": null,
+			"requireRespiratoryDetails": false,
+			"height": "1.7",
+			"estimateOrMeasureHeight": "ME",
+			"weight": "65.8",
+			"estimateOrMeasureWeight": "ES",
+			"weightLoss": false,
+			"hospital": false,
+			"observationDiagnosisOperationTreatment": false,
+			"surgery": false,
+			"positiveToAidsAntibodies": false,
+			"respiratoryDiseaseOrDisorder": false,
+			"disorderOrDiseaseOfHeartOrBloodVessels": false,
+			"stomachIntestinesBowelRectumAppendixLiverGallBladderDiseaseDisorder": false,
+			"highBPOrHeartOrCirculatoryDisease": false,
+			"eyesEarsNoseThroatDiseaseDisorder": false,
+			"brainOrNervousDiseaseDisorder": false,
+			"backSpineBonesJointsMusclesDiseaseOrDisorder": false,
+			"anySeriousIllnessInJurySurgeryNotMentioned": false
+		},
+		"family": {
+			"isAssuredForm": true,
+			"isNotSiblingAndAssuredForm": true,
+			"IsFatherAlive": true,
+			"famileDisease": false,
+			"haveSibling": false,
+			"siblings": {
+				"0": {
+					"hasIllness": false
+				}
+			}
+		},
+		"assured": true,
+		"clientId": "",
+		"relationship": null,
+		"phone": "9098786756",
+		"address": "4th street",
+		"country": "143",
+		"cityCustom": "Entebbe",
+		"zipcode": "7865",
+		"phoneCountryCode": "+256",
+		"agentReport": {
+			"howLongKnown": 1,
+			"isRelatedTo": false,
+			"isRelatedToFellowActiveAgent": false,
+			"distinctMark": "One eye blind",
+			"knowAnyOtherCondition": false,
+			"anyChangeInExistingInsurance": false,
+			"premiumPaidByLoanOrWithdrawal": false
+		}
+	},
+	"assured": {
+		"id": "983ee00c-d554-4753-baf6-f084ea30c19b",
+		"createdAt": "2018-08-06T14:42:39.712Z",
+		"name": {
+			"title": "MR",
+			"first": "John",
+			"last": "Doe"
+		},
+		"dateOfBirth": "1978-08-06T00:00:00.000Z",
+		"mobileCountryCode": "+256",
+		"mobile": "9087890876",
+		"email": "john.doe@yopmail.com",
+		"gender": "M",
+		"city":"LUSAKA",
+		"additionalPersonalInformation": {
+			"cityPermanent": "LUSAKA",
+			"civilStatus": "S",
+			"nationality": "35",
+			"identificationType": "TIN",
+			"identificationNumber": "7890765",
+			"addressPermanent": "4th street",
+			"zipcodePermanent": "8987",
+			"countryPermanent": "143",
+			"cityPermanentCustom": "Entebbe",
+			"preferredMailingAddress": "present",
+			"planToChangeAddress": false,
+			"haveBeneficialOwner": false
+		},
+		"previousInsurance": {
+			"PolRep": false,
+			"hasProblemApplyForLifeInsuranceOrReinstatement": false,
+			"hasPendingApplicationInOtherInsuranceCompanies": false,
+			"hasInsuranceInForce": false,
+			"hasAnyExistingInsuranceWillInForce": false,
+			"willUsePolicyLoanPaidInsurancePremiums": false
+		},
+		"workPay": {
+			"occupations": {
+				"0": {
+					"city": 13,
+					"employment": "employed",
+					"occupation": "ACCT",
+					"businessNature": "Accommodation and Food Services",
+					"employerName": "ABC Corp\t",
+					"addressBusiness": "4th street",
+					"countryBusiness": "143",
+					"cityCustom": "Entebbe",
+					"zipcodeBusiness": "9876",
+					"occupationChange": false
+				},
+				"1": {
+					
+				}
+			},
+			"incomeBeforeTax": 180000,
+			"netWorth": 2500000,
+			"sourcesOfFunds": "salary"
+		},
+		"documents": {
+			"medical": {
+				"uploadMedicalDocuments": true
+			}
+		},
+		"age": 40,
+		"lifestyle": {
+			"displayDivingAndJumpingForm": false,
+			"displayRacingForm": false,
+			"displayMountaineerForm": false,
+			"displayGeneralSportForm": false,
+			"displayAviationForm": false,
+			"flownAircraft": false,
+			"dangerousSports": false,
+			"divingAndJumping": false,
+			"motorcycle": false,
+			"racing": false,
+			"mountaineer": false,
+			"mountaineering": {
+				
+			},
+			"otherHazardousSport": false,
+			"generalSports": {
+				
+			},
+			"smoke": false,
+			"alcohol": false,
+			"drugs": false,
+			"politics": false,
+			"riskToAids": false
+		},
+		"medical": {
+			"requireDiabetesDetails": null,
+			"requireRespiratoryDetails": false,
+			"height": "1.7",
+			"estimateOrMeasureHeight": "ME",
+			"weight": "65.8",
+			"estimateOrMeasureWeight": "ES",
+			"weightLoss": false,
+			"hospital": false,
+			"observationDiagnosisOperationTreatment": false,
+			"surgery": false,
+			"positiveToAidsAntibodies": false,
+			"respiratoryDiseaseOrDisorder": false,
+			"disorderOrDiseaseOfHeartOrBloodVessels": false,
+			"stomachIntestinesBowelRectumAppendixLiverGallBladderDiseaseDisorder": false,
+			"highBPOrHeartOrCirculatoryDisease": false,
+			"eyesEarsNoseThroatDiseaseDisorder": false,
+			"brainOrNervousDiseaseDisorder": false,
+			"backSpineBonesJointsMusclesDiseaseOrDisorder": false,
+			"anySeriousIllnessInJurySurgeryNotMentioned": false
+		},
+		"family": {
+			"isAssuredForm": true,
+			"isNotSiblingAndAssuredForm": true,
+			"IsFatherAlive": true,
+			"famileDisease": false,
+			"haveSibling": false,
+			"siblings": {
+				"0": {
+					"hasIllness": false
+				}
+			}
+		},
+		"clientId": "",
+		"phone": "9098786756",
+		"address": "4th street",
+		"country": "ZMA",
+		"cityCustom": "Entebbe",
+		"zipcode": "7865",
+		"phoneCountryCode": "+256",
+		"agentReport": {
+			"howLongKnown": 1,
+			"isRelatedTo": false,
+			"isRelatedToFellowActiveAgent": false,
+			"distinctMark": "One eye blind",
+			"knowAnyOtherCondition": false,
+			"anyChangeInExistingInsurance": false,
+			"premiumPaidByLoanOrWithdrawal": false
+		}
+	},
+	"shouldTriggerDocumentChecking": false,
+	"isRidersVisible": true,
+	"isProductConfirmationVisible": true,
+	"riderNeeds": null,
+	"aggregationStatus": "UPLOAD_APPLICATION_CHECK_SUCCESS",
+	"showRequiredSignatureAlert": true,
+	"payment": {
+		"method": "ddac",
+		"creditCard": {
+			"amount": 50000,
+			"cardNumber": "4111111111111111",
+			"name": "John Doe",
+			"expiryDate": "2032-08-06T00:00:00.000Z",
+			"cvv": "435",
+			"address": "4th street",
+			"zipcode": "3243",
+			"country": "143"
+		},
+		"ddac": {
+			"confirmAccountNumber": "",
+			"bankName": "ABC",
+			"accountNumber": "",
+			"branchName": "ABC Branch "
+		}
+	},
+	"requiredDocuments": {
+		"983ee00c-d554-4753-baf6-f084ea30c19b": {
+			"documents": [{
+				"id": null,
+				"code": "GOVID",
+				"name": "Government Issued ID",
+				"disclaimer": "Please upload a scan/photo of insured's /policy owner's valid government-issued ID. If government-issued ID is not available, please upload at least 2 valid non-government IDs.",
+				"category": "General",
+				"order": 0,
+				"required": true
+			},
+			{
+				"id": null,
+				"code": "ADAE",
+				"name": "ADA Enrollment Form",
+				"disclaimer": null,
+				"category": "General",
+				"order": 0,
+				"required": true
+			}]
+		}
+	},
+	"showDocumentAlert": false
+}
