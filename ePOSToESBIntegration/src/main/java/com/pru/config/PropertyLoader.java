@@ -20,6 +20,7 @@ public class PropertyLoader {
 	}
 
 	private void loadProperties(String path) {
+		logger.info("PropertyLoader start");
 		try {
 			policyProposalPropConfig = ParameterTool
 					.fromPropertiesFile(path + IntegrationConstants.NBS_MAPPING_PROPERTIES);
@@ -27,7 +28,7 @@ public class PropertyLoader {
 					.fromPropertiesFile(path + IntegrationConstants.NBS_MAPPING_PROPERTIES);
 			
 		} catch (IOException e) {
-			System.err.println("No path specified. Please give path to property file'");
+			logger.error("Error while loading property in PropertyLoader :: {}",e);
 			e.printStackTrace();
 		}
 	}
