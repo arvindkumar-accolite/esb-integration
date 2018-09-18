@@ -42,40 +42,36 @@ public class FlinkJsonConsumer {
 			e.printStackTrace();
 		}
 	}
+
 	private static void loadPath(String[] args) {
 		final ParameterTool params = ParameterTool.fromArgs(args);
 		path = params.get(IntegrationConstants.RESOURCE_PATH);
 	}
+
 	private void kafkaReader() throws Exception {
 		System.out.println("insider reader");
+		
 		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 		env.setParallelism(1);
+		
 		FlinkKafkaConsumer010<String> flinkKafkaConsumer = getFlinkKafkaConsumer010();
 		DataStream<String> messageStream = env.addSource(flinkKafkaConsumer);
-		FlinkKafkaProducer011<String> myProducer = new FlinkKafkaProducer011<String>(flinkPropConfig.get(IntegrationConstants.BOOTSTRAP_SERVER),
+		
+		FlinkKafkaProducer011<String> myProducer = new FlinkKafkaProducer011<String>(
+				flinkPropConfig.get(IntegrationConstants.BOOTSTRAP_SERVER),
 				flinkPropConfig.get(IntegrationConstants.NBS_PROPSAL_TOPIC), new SimpleStringSchema());
+		
 		messageStream.flatMap(new FlatMapFunction<String, NewBusinessModel>() {
-
-			/**
-			 * 
-			 */
 			private static final long serialVersionUID = 1L;
-
 			@Override
 			public void flatMap(String value, Collector<NewBusinessModel> out) throws Exception {
 				ESBService esbService = new ESBServiceImpl();
 				out.collect(esbService.generateNBSModel(value));
 			}
 		}).flatMap(new FlatMapFunction<NewBusinessModel, String>() {
-
-			/**
-			 * 
-			 */
 			private static final long serialVersionUID = 1L;
-
 			@Override
 			public void flatMap(NewBusinessModel value, Collector<String> out) throws Exception {
-
 				ObjectMapper mapper = new ObjectMapper();
 				out.collect(mapper.writeValueAsString(value));
 				System.out.println(mapper.writeValueAsString(value));
@@ -88,11 +84,13 @@ public class FlinkJsonConsumer {
 
 	private FlinkKafkaConsumer010<String> getFlinkKafkaConsumer010() {
 		Properties prop = new Properties();
-		prop.setProperty(IntegrationConstants.BOOTSTRAP_SERVER, flinkPropConfig.get(IntegrationConstants.BOOTSTRAP_SERVER));
-		prop.setProperty(IntegrationConstants.ZOOKEEPER_CONNECT, flinkPropConfig.get(IntegrationConstants.ZOOKEEPER_CONNECT));
+		prop.setProperty(IntegrationConstants.BOOTSTRAP_SERVER,
+				flinkPropConfig.get(IntegrationConstants.BOOTSTRAP_SERVER));
+		prop.setProperty(IntegrationConstants.ZOOKEEPER_CONNECT,
+				flinkPropConfig.get(IntegrationConstants.ZOOKEEPER_CONNECT));
 		prop.setProperty(IntegrationConstants.GROUP_ID, flinkPropConfig.get(IntegrationConstants.GROUP_ID));
-		FlinkKafkaConsumer010<String> flinkKafkaConsumer = new FlinkKafkaConsumer010<>(flinkPropConfig.get(IntegrationConstants.POLICY_PROPSAL_TOPIC),
-				new SimpleStringSchema(), prop);
+		FlinkKafkaConsumer010<String> flinkKafkaConsumer = new FlinkKafkaConsumer010<>(
+				flinkPropConfig.get(IntegrationConstants.POLICY_PROPSAL_TOPIC), new SimpleStringSchema(), prop);
 
 		return flinkKafkaConsumer;
 

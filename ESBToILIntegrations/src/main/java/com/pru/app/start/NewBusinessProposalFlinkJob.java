@@ -53,6 +53,7 @@ public class NewBusinessProposalFlinkJob {
 		DataStream<String> messageStream = env.addSource(flinkKafkaConsumer);
 		logger.debug("messageStream coming from kafka consumer");
 		messageStream.flatMap(new FlatMapFunction<String, String>() {
+			private static final long serialVersionUID = 1L;
 			@Override
 			public void flatMap(String value, Collector<String> out) throws Exception {
 				logger.debug("message from kafka :: {}",value);

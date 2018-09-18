@@ -5,15 +5,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.pru</groupId>
-	<artifactId>esbintegration</artifactId>
+	<artifactId>esb-integration</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>esbintegration</name>
+	<name>esb-integration</name>
 
 	<modules>
-		<module>model</module>
-		<module>ePOSToESBIntegration</module>
-		<module>ESBToILIntegrations</module>
+		<module>integration-model</module>
+		<module>epos-to-esb-integration</module>
+		<module>esb-to-il-integration</module>
 	</modules>
 
 	<properties>
@@ -73,10 +73,9 @@
 		<dependencies>
 			<dependency>
 				<groupId>com.pru</groupId>
-				<artifactId>model</artifactId>
+				<artifactId>integration-model</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<scope>compile</scope>
-				<!-- <systemPath>../to/myejbproject.jar</systemPath> -->
 			</dependency>
 			<dependency>
 				<groupId>com.sun.xml.messaging.saaj</groupId>
