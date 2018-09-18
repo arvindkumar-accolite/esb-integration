@@ -1,5 +1,5 @@
 
-package com.pru.model.middleware;
+package com.pru.model.esb;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

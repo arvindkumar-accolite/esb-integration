@@ -18,13 +18,13 @@ import com.pru.constant.ILConfigConstants;
 import com.pru.constant.IntegrationConstants;
 import com.pru.mapper.impl.OrikaModelClientMapperImpl;
 import com.pru.mapper.impl.OrikaModelNewBusinessMapperImpl;
+import com.pru.model.esb.ClientDetails;
+import com.pru.model.esb.NewBusinessModel;
 import com.pru.model.il.CLICRPIREC;
 import com.pru.model.il.MSPContext;
 import com.pru.model.il.NBSCRTIREC;
 import com.pru.model.il.RequestParameter;
 import com.pru.model.il.RequestParameters;
-import com.pru.model.middleware.ClientDetails;
-import com.pru.model.middleware.NewBusinessModel;
 
 public class NewBusinessProposalGenerator {
 	private final static Logger logger = LoggerFactory.getLogger(NewBusinessProposalGenerator.class);

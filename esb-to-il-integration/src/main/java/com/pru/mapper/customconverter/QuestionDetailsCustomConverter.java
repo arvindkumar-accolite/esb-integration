@@ -3,8 +3,8 @@ package com.pru.mapper.customconverter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pru.model.esb.QuestionDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTIQUESTION;
-import com.pru.model.middleware.QuestionDetails;
 
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;

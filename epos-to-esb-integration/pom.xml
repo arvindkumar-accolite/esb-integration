@@ -10,6 +10,11 @@
 	</parent>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.pru</groupId>
+			<artifactId>integration-model</artifactId>
+		</dependency>
+
 		<!-- flink dependencies -->
 		<dependency>
 			<groupId>org.apache.flink</groupId>

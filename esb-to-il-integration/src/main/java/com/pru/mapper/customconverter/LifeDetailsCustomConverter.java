@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.pru.constant.IntegrationConstants;
+import com.pru.model.esb.LifeDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTILIVES;
 import com.pru.model.il.NBSCRTIREC.NBSCRTILIVES.DOB;
-import com.pru.model.middleware.LifeDetails;
 
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;

@@ -3,9 +3,9 @@ package com.pru.mapper.customconverter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pru.model.esb.BeneficiaryDetails;
 import com.pru.model.il.NBSCRTIREC.BENEFICIARY.NBSCRTIBENDETAILS;
 import com.pru.model.il.NBSCRTIREC.BENEFICIARY.NBSCRTIBENDETAILS.EFFDATE;
-import com.pru.model.middleware.BeneficiaryDetails;
 
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;

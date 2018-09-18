@@ -1,5 +1,5 @@
 
-package com.pru.model.middleware;
+package com.pru.model.esb;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

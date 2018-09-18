@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.pru.constant.IntegrationConstants;
+import com.pru.model.esb.ClientDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICLIENT;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICLIENT.CLIENTCLTDOBX;
-import com.pru.model.middleware.ClientDetails;
 
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;

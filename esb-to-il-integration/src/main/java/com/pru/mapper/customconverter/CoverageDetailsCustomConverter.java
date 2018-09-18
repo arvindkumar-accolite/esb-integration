@@ -3,11 +3,11 @@ package com.pru.mapper.customconverter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pru.model.esb.CoverageDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICOVERAGEDETAILS;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICOVERAGEDETAILS.COVRPCESDTE;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICOVERAGEDETAILS.COVRRCESDTE;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICOVERAGEDETAILS.COVRRUNDTE;
-import com.pru.model.middleware.CoverageDetails;
 
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;

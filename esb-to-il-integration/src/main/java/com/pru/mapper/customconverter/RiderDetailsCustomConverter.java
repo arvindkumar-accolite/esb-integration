@@ -8,10 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 import com.pru.constant.IntegrationConstants;
+import com.pru.model.esb.RiderDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTIRIDERDETAILS;
 import com.pru.model.il.NBSCRTIREC.ASSIGNEES.NBSCRTIASSIGNEEDETAILS.COMMFROM;
 import com.pru.model.il.NBSCRTIREC.ASSIGNEES.NBSCRTIASSIGNEEDETAILS.COMMTO;
-import com.pru.model.middleware.RiderDetails;
 
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;

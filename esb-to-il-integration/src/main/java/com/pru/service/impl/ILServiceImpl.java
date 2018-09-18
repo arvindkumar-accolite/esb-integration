@@ -20,8 +20,8 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pru.constant.IntegrationConstants;
-import com.pru.model.middleware.NewBusinessModel;
-import com.pru.model.middleware.OwnerDetails;
+import com.pru.model.esb.NewBusinessModel;
+import com.pru.model.esb.OwnerDetails;
 import com.pru.service.ILService;
 import com.pru.translator.NewBusinessProposalGenerator;
 import com.sun.xml.messaging.saaj.soap.impl.ElementImpl;
