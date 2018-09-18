@@ -187,8 +187,8 @@ public class NewBusinessModel {
 
 	@JsonProperty("lifeDetails")
 	public List<LifeDetails> getLifeDetails() {
-		if (null == fundDetails) {
-			fundDetails = new ArrayList<>();
+		if (null == lifeDetails) {
+			lifeDetails = new ArrayList<>();
 		}
 		return lifeDetails;
 	}
