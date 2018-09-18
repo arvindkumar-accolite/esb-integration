@@ -17,7 +17,7 @@ import org.apache.flink.util.Collector;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pru.config.PropertyLoader;
 import com.pru.constant.IntegrationConstants;
-import com.pru.model.middleware.NewBusinessModel;
+import com.pru.model.esb.NewBusinessModel;
 import com.pru.service.ESBService;
 import com.pru.service.impl.ESBServiceImpl;
 

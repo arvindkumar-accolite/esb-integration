@@ -1,7 +1,7 @@
 package com.pru.service.impl;
 
 import com.pru.mapper.impl.NewBusinessPopulator;
-import com.pru.model.middleware.NewBusinessModel;
+import com.pru.model.esb.NewBusinessModel;
 import com.pru.service.ESBService;
 
 public class ESBServiceImpl implements ESBService {
