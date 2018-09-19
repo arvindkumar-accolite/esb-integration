@@ -42,7 +42,7 @@ public class LifeDetails {
 
 	@JsonProperty("lifeId")
 	public void setLifeId(String lifeId) {
-		this.lifeId = lifeId;
+		this.lifeId = lifeId.isEmpty() ? "50002307" : lifeId;
 	}
 
 	@JsonProperty("lifeParty")
@@ -52,7 +52,7 @@ public class LifeDetails {
 
 	@JsonProperty("lifeParty")
 	public void setLifeParty(String lifeParty) {
-		this.lifeParty = lifeParty;
+		this.lifeParty = lifeParty.isEmpty() ? "50002307" : lifeParty;
 	}
 
 	@JsonProperty("anbAge")
@@ -72,7 +72,7 @@ public class LifeDetails {
 
 	@JsonProperty("dateOfBirth")
 	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+		this.dateOfBirth = dateOfBirth.isEmpty() ? "1978-08-06T00:00:00.000Z" : dateOfBirth;
 	}
 
 	@JsonProperty("occupationCode")
@@ -82,7 +82,7 @@ public class LifeDetails {
 
 	@JsonProperty("occupationCode")
 	public void setOccupationCode(String occupationCode) {
-		this.occupationCode = occupationCode;
+		this.occupationCode = occupationCode.isEmpty() ? "ACCT" : occupationCode;
 	}
 
 	@JsonProperty("relationshipToLifeInsured")
@@ -92,7 +92,7 @@ public class LifeDetails {
 
 	@JsonProperty("relationshipToLifeInsured")
 	public void setRelationshipToLifeInsured(String relationshipToLifeInsured) {
-		this.relationshipToLifeInsured = relationshipToLifeInsured;
+		this.relationshipToLifeInsured = relationshipToLifeInsured.isEmpty() ? "ch" : relationshipToLifeInsured;
 	}
 
 	@JsonProperty("selection")
@@ -102,7 +102,7 @@ public class LifeDetails {
 
 	@JsonProperty("selection")
 	public void setSelection(String selection) {
-		this.selection = selection;
+		this.selection = selection.isEmpty() ? "OTH" : selection;
 	}
 
 	@JsonProperty("sex")
@@ -112,7 +112,7 @@ public class LifeDetails {
 
 	@JsonProperty("sex")
 	public void setSex(String sex) {
-		this.sex = sex;
+		this.sex = sex.isEmpty() ? "M" : sex;
 	}
 
 	@JsonProperty("smokingIndicator")
@@ -122,7 +122,7 @@ public class LifeDetails {
 
 	@JsonProperty("smokingIndicator")
 	public void setSmokingIndicator(String smokingIndicator) {
-		this.smokingIndicator = smokingIndicator;
+		this.smokingIndicator = smokingIndicator.isEmpty() ? "N" : smokingIndicator;
 	}
 
 	@JsonProperty("height")
@@ -132,7 +132,7 @@ public class LifeDetails {
 
 	@JsonProperty("height")
 	public void setHeight(BigInteger height) {
-		this.height = height;
+		this.height = height == null ? new BigInteger("170") : height;
 	}
 
 	@JsonProperty("weight")
@@ -142,6 +142,6 @@ public class LifeDetails {
 
 	@JsonProperty("weight")
 	public void setWeight(BigInteger weight) {
-		this.weight = weight;
+		this.weight = weight == null ? new BigInteger("80") : weight;
 	}
 }

@@ -156,7 +156,7 @@ public class CoverageDetails {
 
     @JsonProperty("sumInsured")
     public void setSumInsured(BigInteger sumInsured) {
-        this.sumInsured = sumInsured;
+        this.sumInsured = sumInsured == null ? new BigInteger("400000") : sumInsured;
     }
 
     @JsonProperty("coverageOrRiderInstalmentAmount")

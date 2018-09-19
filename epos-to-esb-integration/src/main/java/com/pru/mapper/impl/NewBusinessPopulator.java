@@ -1,13 +1,19 @@
 package com.pru.mapper.impl;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
 import org.apache.flink.api.java.utils.ParameterTool;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.pru.config.PropertyLoader;
 import com.pru.constant.IntegrationConstants;
 import com.pru.model.esb.ApplyCashDetails;
@@ -40,18 +46,38 @@ import com.pru.translator.JsonValueExtractor;
 
 public class NewBusinessPopulator {
 	private JsonValueExtractor extractor;
-	private static Map<String, String> propertyMap;
+	private static Map<String, String> propertyMap = null;
 	private static String contractType = null;
-
+	
 	public NewBusinessPopulator() {
 		ParameterTool policyProposalPropConfig = PropertyLoader.getPolicyProposalPropConfig();
 		propertyMap = policyProposalPropConfig.toMap();
+	}
+
+	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException {
+		String content = new String(Files.readAllBytes(Paths.get("./resources/newJson.txt")));
+		NewBusinessPopulator nbspop = new NewBusinessPopulator();
+		ObjectMapper mapper = new ObjectMapper();
+		NewBusinessModel nbsModel = nbspop.buildNewBusiness(content);
+		System.out.println("meeee");
+
+		// ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		// String json = ow.writeValueAsString(nbsModel);
+		// Object to JSON in file
+		// String json = mapper.writeValueAsString(nbsModel);
+		// System.out.println(json);
+		// Object to JSON in String
+
+		String jsonInString = mapper.writeValueAsString(nbsModel);
+		System.out.println(jsonInString);
+
 	}
 
 	public NewBusinessModel buildNewBusiness(String json) {
 		NewBusinessModel nbsModel = new NewBusinessModel();
 		extractor = new JsonValueExtractor(json);
 
+		System.out.println("JSON+++++++++" + json);
 		nbsModel.setApplyCashDetails(populateApplyCashDetails());
 		nbsModel.setAssignees(populateAssignees());
 		nbsModel.setBankDetails(populateBankDetails());
@@ -107,7 +133,7 @@ public class NewBusinessPopulator {
 		bankDetails.setBankKey("");
 		bankDetails.setClientSelectionWithBankDetails("");
 		bankDetails.setCurrencyCode("");
-		// bankDetails.setDatefrom("2018-09-06T00:00:00.000Z");
+		//bankDetails.setDatefrom("2018-09-06T00:00:00.000Z");
 		bankDetails.setFactoringHouse("");
 		return bankDetails;
 	}
@@ -127,12 +153,13 @@ public class NewBusinessPopulator {
 		beneficiaryDetail.setBeneficiaryPercentage(new BigDecimal("0"));
 		beneficiaryDetail.setBeneficiaryType("");
 		beneficiaryDetail.setClientRelationship("");
-		// beneficiaryDetail.setEffectiveDate("2018-09-06T00:00:00.000Z");
+		//beneficiaryDetail.setEffectiveDate("2018-09-06T00:00:00.000Z");
 		return beneficiaryDetail;
 	}
 
 	private ClientDetails populateClientDetails() {
 		ClientDetails clientDetails = new ClientDetails();
+		System.out.println(propertyMap.get("newbusiness.client.address1"));
 		clientDetails.setAddress01(extractor.fetchString(propertyMap.get("newbusiness.client.address1")));
 		clientDetails.setAddressType("R");
 		clientDetails.setBirthPlace(extractor.fetchString(propertyMap.get("newbusiness.client.birthPlace")));
@@ -143,6 +170,7 @@ public class NewBusinessPopulator {
 		clientDetails.setMailingIndicator("");
 		clientDetails
 				.setMarriedIndicator(extractor.fetchString(propertyMap.get("newbusiness.client.marriedIndicator")));
+		// clientDetails.setPostalCode(extractor.fetchString(propertyMap.get("newbusiness.client.postalCode")));
 		clientDetails.setPostalCode("");
 		String salutation = extractor.fetchString(propertyMap.get("newbusiness.client.longSalutation"));
 		if (salutation.equalsIgnoreCase("MR.")) {
@@ -151,8 +179,16 @@ public class NewBusinessPopulator {
 			clientDetails.setSalutation("Ms");
 		} else if (salutation.equalsIgnoreCase("MISS")) {
 			clientDetails.setSalutation("Miss");
-		} else {
-			clientDetails.setSalutation(salutation);
+		} else if (salutation.equalsIgnoreCase("Mrs.") || salutation.equalsIgnoreCase("Mrs")) {
+			clientDetails.setSalutation("Mrs");
+		} else if (salutation.equalsIgnoreCase("DR")) {
+			clientDetails.setSalutation("Dr");
+		} else if (salutation.equalsIgnoreCase("Other")) {
+			if (clientDetails.getGender().equalsIgnoreCase("M")) {
+				clientDetails.setSalutation("Mr");
+			}else if (clientDetails.getGender().equalsIgnoreCase("F")) {
+				clientDetails.setSalutation("Mrs");
+			}
 		}
 		clientDetails.setSurName(extractor.fetchString(propertyMap.get("newbusiness.client.surname")));
 		clientDetails.setNationality(extractor.fetchString(propertyMap.get("newbusiness.client.nationality")));
@@ -186,16 +222,16 @@ public class NewBusinessPopulator {
 	private ContractDetails populateContractDetails() {
 		ContractDetails contractDetails = new ContractDetails();
 		contractDetails.setAccountType("AG");
-		contractDetails.setAgentNumber(extractor.fetchString(propertyMap.get("newbusiness.contract.agentNumber")));
+//		contractDetails.setAgentNumber(extractor.fetchString(propertyMap.get("newbusiness.contract.agentNumber")));
+		contractDetails.setAgentNumber("50000014");
 		contractDetails
 				.setBillingCurrency(extractor.fetchString(propertyMap.get("newbusiness.contract.billingCurrency")));
-
 		// int billingFrequency =
 		// extractor.fetchInt((propertyMap.get("newbusiness.contract.billingFrequency")));
-		// contractDetails.setBillingfrequency(String.format("%02d", billingFrequency));
 
+		// contractDetails.setBillingfrequency(String.format("%02d", billingFrequency));
 		contractDetails.setBillingfrequency("12");
-		// contractDetails.setBillingRenewalDate("2019-09-04T00:00:00.000Z");
+		//contractDetails.setBillingRenewalDate("9999-99-99T00:00:00.000Z");
 		contractDetails.setBillingRenewalIndicator(new BigInteger("01"));
 		contractDetails
 				.setContractCurrency(extractor.fetchString(propertyMap.get("newbusiness.contract.contractcurrency")));
@@ -213,6 +249,8 @@ public class NewBusinessPopulator {
 			} else if (register.equalsIgnoreCase("UGD")) {
 				contractDetails.setRegister("CA1");
 			}
+		} else {
+			contractDetails.setRegister("ZMA");
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT);
 		contractDetails.setProposalDate(sdf.format(new Date()));
@@ -224,7 +262,7 @@ public class NewBusinessPopulator {
 
 	public BigDecimal convertStringToBigDecimal(String str) {
 		BigDecimal temp = null;
-		if (null != str) {
+		if (!str.isEmpty()) {
 			temp = new BigDecimal(str);
 		} else
 			temp = new BigDecimal(0);
@@ -235,8 +273,9 @@ public class NewBusinessPopulator {
 		BigDecimal temp = null;
 		if (null != num) {
 			temp = new BigDecimal(num);
-		} else
-			temp = new BigDecimal(0);
+		} /*
+			 * else temp = BigInteger.valueOf(0);
+			 */
 		return temp;
 	}
 
@@ -244,8 +283,9 @@ public class NewBusinessPopulator {
 		BigInteger temp = null;
 		if (null != num) {
 			temp = BigInteger.valueOf(num);
-		} else
-			temp = BigInteger.valueOf(0);
+		} /*
+			 * else temp = BigInteger.valueOf(0);
+			 */
 		return temp;
 	}
 
@@ -262,7 +302,7 @@ public class NewBusinessPopulator {
 
 		BigInteger temp = null;
 
-		if (null != str) {
+		if (!str.isEmpty()) {
 			BigDecimal tempDecimal = new BigDecimal(str);
 			temp = tempDecimal.toBigInteger();
 		} else
@@ -275,28 +315,33 @@ public class NewBusinessPopulator {
 		// coverageDetails.setCoverageOrRiderInstalmentAmount(
 		// convertIntToBigDecimal(extractor.fetchInt(propertyMap.get("newbusiness.coverage.instalmentAmount"))));
 		coverageDetails.setCoverageOrRiderInstalmentAmount(new BigDecimal("0"));
-		if (null != contractType) {
+		if (!contractType.isEmpty()) {
 			if (contractType.equalsIgnoreCase("EDU")) {
 				coverageDetails.setCoverageOrRiderTable("EDU1");
 			} else if (contractType.equalsIgnoreCase("SCP")) {
 				coverageDetails.setCoverageOrRiderTable("SCP1");
 			}
+		} else {
+			coverageDetails.setCoverageOrRiderTable("SCP1");
 		}
-
 		coverageDetails.setLumpSumContribution(new BigDecimal("1"));
-		boolean mortality = extractor.fetchBoolean(propertyMap.get("newbusiness.coverage.mortalityClass"));
-		if (mortality) {
-			coverageDetails.setMortalityClass("Y");
+		Boolean mortality = extractor.fetchBoolean(propertyMap.get("newbusiness.coverage.mortalityClass"));
+		if (null != mortality) {
+			if (mortality) {
+
+				coverageDetails.setMortalityClass("Y");
+			} else {
+				coverageDetails.setMortalityClass("N");
+			}
 		} else {
 			coverageDetails.setMortalityClass("N");
 		}
-
 		coverageDetails.setPremiumCessationAge(new BigInteger("00"));
-		// coverageDetails.setPremiumCessationDate("2028-09-06T00:00:00.000Z");
+		//coverageDetails.setPremiumCessationDate("2028-09-06T00:00:00.000Z");
 		coverageDetails.setPremiumCessationTerm(new BigInteger("10"));
-		// coverageDetails.setReserveUnitsAllocationDate("2028-09-06T00:00:00.000Z");
+		//coverageDetails.setReserveUnitsAllocationDate("2028-09-06T00:00:00.000Z");
 		coverageDetails.setRiskCessationAge(new BigInteger("00"));
-		// coverageDetails.setRiskCessationDate("2028-09-06T00:00:00.000Z");
+		//coverageDetails.setRiskCessationDate("2018-09-11T00:00:00.000Z");
 		coverageDetails.setRiskCessationTerm(new BigInteger("10"));
 		coverageDetails.setSumInsured(
 				convertIntToBigInteger(extractor.fetchInt(propertyMap.get("newbusiness.coverage.sumInsured"))));
@@ -411,21 +456,42 @@ public class NewBusinessPopulator {
 
 	private LifeDetails populateLifeDetails() {
 		LifeDetails lifeDetails = new LifeDetails();
-		lifeDetails.setAnbAge(new BigInteger("00"));
-		// lifeDetails.setAnbAge(convertIntToBigInteger(extractor.fetchInt(propertyMap.get("newbusiness.lives.anbAge"))));
-
+		BigInteger age = convertIntToBigInteger(extractor.fetchInt(propertyMap.get("newbusiness.lives.anbAge")));
+		System.out.println(age);
+//		lifeDetails.setAnbAge(age.add(new BigInteger("1")));
+		lifeDetails.setAnbAge(new BigInteger("0"));
 		lifeDetails.setDateOfBirth(extractor.fetchString(propertyMap.get("newbusiness.lives.dateOfBirth")));
-		lifeDetails.setHeight(convertHeightInCms(extractor.fetchString(propertyMap.get("newbusiness.lives.hight"))));
+		lifeDetails.setHeight(convertHeightInCms(extractor.fetchString(propertyMap.get("newbusiness.lives.height"))));
 		lifeDetails.setLifeId("");
 		lifeDetails.setLifeParty("");
 		lifeDetails.setOccupationCode(extractor.fetchString(propertyMap.get("newbusiness.lives.occupationCode")));
-		lifeDetails.setRelationshipToLifeInsured(
-				extractor.fetchString(propertyMap.get("newbusiness.lives.relationshipToLifeInsured")));
+		String relationShip = extractor.fetchString(propertyMap.get("newbusiness.lives.relationshipToLifeInsured"));
+
+		if (null != relationShip) {
+			if (relationShip.equalsIgnoreCase("spouse")) {
+				lifeDetails.setRelationshipToLifeInsured("sp");
+			} else if (relationShip.equalsIgnoreCase("child")) {
+				lifeDetails.setRelationshipToLifeInsured("ch");
+			} else if (relationShip.equalsIgnoreCase("father")) {
+				lifeDetails.setRelationshipToLifeInsured("ft");
+			} else if (relationShip.equalsIgnoreCase("mother")) {
+				lifeDetails.setRelationshipToLifeInsured("mt");
+			} else if (relationShip.equalsIgnoreCase("grandParent")) {
+				lifeDetails.setRelationshipToLifeInsured("gp");
+			} else if (relationShip.equalsIgnoreCase("other")) {
+				lifeDetails.setRelationshipToLifeInsured("ot");
+			} else {
+				lifeDetails.setRelationshipToLifeInsured("ot");
+			}
+		}
+
+//		lifeDetails.setRelationshipToLifeInsured(
+//				extractor.fetchString(propertyMap.get("newbusiness.lives.relationshipToLifeInsured")));
 		lifeDetails.setSelection("OTH");
 		lifeDetails.setSex(extractor.fetchString(propertyMap.get("newbusiness.lives.sex")));
-		boolean smoke = extractor.fetchBoolean(propertyMap.get("newbusiness.lives.smokingIndicator"));
+		Boolean smoke = extractor.fetchBoolean(propertyMap.get("newbusiness.lives.smokingIndicator"));
 		String smokeIndicator;
-		if (smoke) {
+		if (null != smoke && smoke) {
 			smokeIndicator = "Y";
 		} else {
 			smokeIndicator = "N";
@@ -437,7 +503,9 @@ public class NewBusinessPopulator {
 	}
 
 	private BigInteger convertHeightInCms(String height) {
-
+		if (height.isEmpty()) {
+			return null;
+		}
 		double doubleHeight = Double.valueOf(height);
 		Integer intHeight = (int) (doubleHeight * 100);
 		BigInteger bigHeight = new BigInteger(intHeight.toString());
@@ -449,7 +517,7 @@ public class NewBusinessPopulator {
 		mandateDetails.setBankAccountKey("");
 		mandateDetails.setBankKey("");
 		mandateDetails.setClientNumber("");
-		// mandateDetails.setEffectiveDate("2018-09-06T00:00:00.000Z");
+		//mandateDetails.setEffectiveDate("2018-09-06T00:00:00.000Z");
 		mandateDetails.setFactoringHouse("");
 		mandateDetails.setMandateId("");
 		mandateDetails.setMandateRefNumber("");
@@ -491,7 +559,7 @@ public class NewBusinessPopulator {
 		premiumRCTDetails.setRecievedFromCode("");
 		premiumRCTDetails.setRecievedFromNumber("");
 		premiumRCTDetails.getSfldetails().add(populateSFLDetails());
-		// premiumRCTDetails.setTranDate("2018-09-06T00:00:00.000Z");
+		//premiumRCTDetails.setTranDate("2018-09-06T00:00:00.000Z");
 		return premiumRCTDetails;
 	}
 
@@ -546,5 +614,4 @@ public class NewBusinessPopulator {
 		specialTermDetails.setSpecialTermParent("");
 		return specialTermDetails;
 	}
-
 }

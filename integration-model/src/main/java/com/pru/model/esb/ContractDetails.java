@@ -27,184 +27,185 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 public class ContractDetails {
 
-    @JsonProperty("contractHDREntId")
-    private String contractHDREntId;
-    @JsonProperty("contractNumber")
-    private String contractNumber;
-    @JsonProperty("contractType")
-    private String contractType;
-    @JsonProperty("agentNumber")
-    private String agentNumber;
-    @JsonProperty("billingRenewalDate")
-    private String billingRenewalDate;
-    @JsonProperty("billingCurrency")
-    private String billingCurrency;
-    @JsonProperty("billingfrequency")
-    private String billingfrequency;
-    @JsonProperty("billingRenewalIndicator")
-    private BigInteger billingRenewalIndicator;
-    @JsonProperty("contractCurrency")
-    private String contractCurrency;
-    @JsonProperty("methodOfPayment")
-    private String methodOfPayment;
-    @JsonProperty("proposalDate")
-    private String proposalDate;
-    @JsonProperty("planSuffix")
-    private BigInteger planSuffix;
-    @JsonProperty("register")
-    private String register;
-    @JsonProperty("accountType")
-    private String accountType;
-    @JsonProperty("originalCommencementDate")
-    private String originalCommencementDate;
-    
-    @JsonProperty("contractHDREntId")
-    public String getContractHDREntId() {
-        return contractHDREntId;
-    }
+	@JsonProperty("contractHDREntId")
+	private String contractHDREntId;
+	@JsonProperty("contractNumber")
+	private String contractNumber;
+	@JsonProperty("contractType")
+	private String contractType;
+	@JsonProperty("agentNumber")
+	private String agentNumber;
+	@JsonProperty("billingRenewalDate")
+	private String billingRenewalDate;
+	@JsonProperty("billingCurrency")
+	private String billingCurrency;
+	@JsonProperty("billingfrequency")
+	private String billingfrequency;
+	@JsonProperty("billingRenewalIndicator")
+	private BigInteger billingRenewalIndicator;
+	@JsonProperty("contractCurrency")
+	private String contractCurrency;
+	@JsonProperty("methodOfPayment")
+	private String methodOfPayment;
+	@JsonProperty("proposalDate")
+	private String proposalDate;
+	@JsonProperty("planSuffix")
+	private BigInteger planSuffix;
+	@JsonProperty("register")
+	private String register;
+	@JsonProperty("accountType")
+	private String accountType;
+	@JsonProperty("originalCommencementDate")
+	private String originalCommencementDate;
 
-    @JsonProperty("contractHDREntId")
-    public void setContractHDREntId(String contractHDREntId) {
-        this.contractHDREntId = contractHDREntId;
-    }
+	@JsonProperty("contractHDREntId")
+	public String getContractHDREntId() {
+		return contractHDREntId;
+	}
 
-    @JsonProperty("contractNumber")
-    public String getContractNumber() {
-        return contractNumber;
-    }
+	@JsonProperty("contractHDREntId")
+	public void setContractHDREntId(String contractHDREntId) {
+		this.contractHDREntId = contractHDREntId;
+	}
 
-    @JsonProperty("contractNumber")
-    public void setContractNumber(String contractNumber) {
-        this.contractNumber = contractNumber;
-    }
+	@JsonProperty("contractNumber")
+	public String getContractNumber() {
+		return contractNumber;
+	}
 
-    @JsonProperty("contractType")
-    public String getContractType() {
-        return contractType;
-    }
+	@JsonProperty("contractNumber")
+	public void setContractNumber(String contractNumber) {
+		this.contractNumber = contractNumber;
+	}
 
-    @JsonProperty("contractType")
-    public void setContractType(String contractType) {
-        this.contractType = contractType;
-    }
+	@JsonProperty("contractType")
+	public String getContractType() {
+		return contractType;
+	}
 
-    @JsonProperty("agentNumber")
-    public String getAgentNumber() {
-        return agentNumber;
-    }
+	@JsonProperty("contractType")
+	public void setContractType(String contractType) {
+		this.contractType = contractType.isEmpty() ? "SCP" : contractType;
+	}
 
-    @JsonProperty("agentNumber")
-    public void setAgentNumber(String agentNumber) {
-        this.agentNumber = agentNumber;
-    }
+	@JsonProperty("agentNumber")
+	public String getAgentNumber() {
+		return agentNumber;
+	}
 
-    @JsonProperty("billingRenewalDate")
-    public String getBillingRenewalDate() {
-        return billingRenewalDate;
-    }
+	@JsonProperty("agentNumber")
+	public void setAgentNumber(String agentNumber) {
+		this.agentNumber = agentNumber.isEmpty() ? "60000761" : agentNumber;
+	}
 
-    @JsonProperty("billingRenewalDate")
-    public void setBillingRenewalDate(String billingRenewalDate) {
-        this.billingRenewalDate = billingRenewalDate;
-    }
+	@JsonProperty("billingRenewalDate")
+	public String getBillingRenewalDate() {
+		return billingRenewalDate;
+	}
 
-    @JsonProperty("billingCurrency")
-    public String getBillingCurrency() {
-        return billingCurrency;
-    }
+	@JsonProperty("billingRenewalDate")
+	public void setBillingRenewalDate(String billingRenewalDate) {
+		this.billingRenewalDate = billingRenewalDate;
+	}
 
-    @JsonProperty("billingCurrency")
-    public void setBillingCurrency(String billingCurrency) {
-        this.billingCurrency = billingCurrency;
-    }
+	@JsonProperty("billingCurrency")
+	public String getBillingCurrency() {
+		return billingCurrency;
+	}
 
-    @JsonProperty("billingfrequency")
-    public String getBillingfrequency() {
-        return billingfrequency;
-    }
+	@JsonProperty("billingCurrency")
+	public void setBillingCurrency(String billingCurrency) {
+		this.billingCurrency = billingCurrency.isEmpty() ? "ZMW" : billingCurrency;
+	}
 
-    @JsonProperty("billingfrequency")
-    public void setBillingfrequency(String billingfrequency) {
-        this.billingfrequency = billingfrequency;
-    }
+	@JsonProperty("billingfrequency")
+	public String getBillingfrequency() {
+		return billingfrequency;
+	}
 
-    @JsonProperty("billingRenewalIndicator")
-    public BigInteger getBillingRenewalIndicator() {
-        return billingRenewalIndicator;
-    }
+	@JsonProperty("billingfrequency")
+	public void setBillingfrequency(String billingfrequency) {
+		this.billingfrequency = billingfrequency;
+	}
 
-    @JsonProperty("billingRenewalIndicator")
-    public void setBillingRenewalIndicator(BigInteger billingRenewalIndicator) {
-        this.billingRenewalIndicator = billingRenewalIndicator;
-    }
+	@JsonProperty("billingRenewalIndicator")
+	public BigInteger getBillingRenewalIndicator() {
+		return billingRenewalIndicator;
+	}
 
-    @JsonProperty("contractCurrency")
-    public String getContractCurrency() {
-        return contractCurrency;
-    }
+	@JsonProperty("billingRenewalIndicator")
+	public void setBillingRenewalIndicator(BigInteger billingRenewalIndicator) {
+		this.billingRenewalIndicator = billingRenewalIndicator;
+	}
 
-    @JsonProperty("contractCurrency")
-    public void setContractCurrency(String contractCurrency) {
-        this.contractCurrency = contractCurrency;
-    }
+	@JsonProperty("contractCurrency")
+	public String getContractCurrency() {
+		return contractCurrency;
+	}
 
-    @JsonProperty("methodOfPayment")
-    public String getMethodOfPayment() {
-        return methodOfPayment;
-    }
+	@JsonProperty("contractCurrency")
+	public void setContractCurrency(String contractCurrency) {
+		this.contractCurrency = contractCurrency.isEmpty() ? "ZMW" : contractCurrency;
+	}
 
-    @JsonProperty("methodOfPayment")
-    public void setMethodOfPayment(String methodOfPayment) {
-        this.methodOfPayment = methodOfPayment;
-    }
+	@JsonProperty("methodOfPayment")
+	public String getMethodOfPayment() {
+		return methodOfPayment;
+	}
 
-    @JsonProperty("proposalDate")
-    public String getProposalDate() {
-        return proposalDate;
-    }
+	@JsonProperty("methodOfPayment")
+	public void setMethodOfPayment(String methodOfPayment) {
+		this.methodOfPayment = methodOfPayment.isEmpty() ? "C" : methodOfPayment;
+	}
 
-    @JsonProperty("proposalDate")
-    public void setProposalDate(String proposalDate) {
-        this.proposalDate = proposalDate;
-    }
+	@JsonProperty("proposalDate")
+	public String getProposalDate() {
+		return proposalDate;
+	}
 
-    @JsonProperty("planSuffix")
-    public BigInteger getPlanSuffix() {
-        return planSuffix;
-    }
+	@JsonProperty("proposalDate")
+	public void setProposalDate(String proposalDate) {
+		this.proposalDate = proposalDate;
+	}
 
-    @JsonProperty("planSuffix")
-    public void setPlanSuffix(BigInteger planSuffix) {
-        this.planSuffix = planSuffix;
-    }
+	@JsonProperty("planSuffix")
+	public BigInteger getPlanSuffix() {
+		return planSuffix;
+	}
 
-    @JsonProperty("register")
-    public String getRegister() {
-        return register;
-    }
+	@JsonProperty("planSuffix")
+	public void setPlanSuffix(BigInteger planSuffix) {
+		this.planSuffix = planSuffix;
+	}
 
-    @JsonProperty("register")
-    public void setRegister(String register) {
-        this.register = register;
-    }
+	@JsonProperty("register")
+	public String getRegister() {
+		return register;
+	}
 
-    @JsonProperty("accountType")
-    public String getAccountType() {
-        return accountType;
-    }
+	@JsonProperty("register")
+	public void setRegister(String register) {
+		this.register = register;
+	}
 
-    @JsonProperty("accountType")
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
+	@JsonProperty("accountType")
+	public String getAccountType() {
+		return accountType;
+	}
 
-    @JsonProperty("originalCommencementDate")
-    public String getOriginalCommencementDate() {
-        return originalCommencementDate;
-    }
+	@JsonProperty("accountType")
+	public void setAccountType(String accountType) {
+		this.accountType = accountType.isEmpty() ? "AG" : accountType;
+	}
 
-    @JsonProperty("originalCommencementDate")
-    public void setOriginalCommencementDate(String originalCommencementDate) {
-        this.originalCommencementDate = originalCommencementDate;
-    }
+	@JsonProperty("originalCommencementDate")
+	public String getOriginalCommencementDate() {
+		return originalCommencementDate;
+	}
+
+	@JsonProperty("originalCommencementDate")
+	public void setOriginalCommencementDate(String originalCommencementDate) {
+		this.originalCommencementDate = originalCommencementDate.isEmpty() ? "2018-09-20T00:00:00.000Z"
+				: originalCommencementDate;
+	}
 }
