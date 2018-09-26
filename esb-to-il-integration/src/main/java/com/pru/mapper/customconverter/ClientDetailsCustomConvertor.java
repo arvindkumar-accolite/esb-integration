@@ -7,6 +7,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.pru.constant.IntegrationConstants;
 import com.pru.model.esb.ClientDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICLIENT;
@@ -15,9 +18,11 @@ import com.pru.model.il.NBSCRTIREC.NBSCRTICLIENT.CLIENTCLTDOBX;
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;
 
-public class ClientDetailsCustomConvertor extends CustomConverter<List<ClientDetails>, List<NBSCRTICLIENT>>
-{
+public class ClientDetailsCustomConvertor extends CustomConverter<List<ClientDetails>, List<NBSCRTICLIENT>> {
+	private final static Logger logger = LoggerFactory.getLogger(AssigneeDetailsCustomConverter.class);
+
 	public CLIENTCLTDOBX convertClientDobDate(String source) {
+		logger.info("ClientDetailsCustomConvertor.convert() start");
 		Date date = null;
 		try {
 			date = new SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source);
@@ -79,7 +84,7 @@ public class ClientDetailsCustomConvertor extends CustomConverter<List<ClientDet
 			nbsClient.setClientbirthp(clientDetails.getBirthPlace());
 			nbsClient.setClientctrycode(clientDetails.getCountryCode());
 			nbsClient.setlientdirmail(clientDetails.getDirectMailIndicator());
-			
+
 			nbsClientList.add(nbsClient);
 		}
 		return nbsClientList;

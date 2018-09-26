@@ -7,6 +7,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.pru.app.start.NewBusinessProposalFlinkJob;
 import com.pru.constant.IntegrationConstants;
 import com.pru.model.esb.AssigneeDetails;
 import com.pru.model.il.NBSCRTIREC.ASSIGNEES.NBSCRTIASSIGNEEDETAILS;
@@ -18,9 +22,11 @@ import ma.glasnost.orika.metadata.Type;
 
 public class AssigneeDetailsCustomConverter
 		extends CustomConverter<List<AssigneeDetails>, List<NBSCRTIASSIGNEEDETAILS>> {
+	private final static Logger logger = LoggerFactory.getLogger(AssigneeDetailsCustomConverter.class);
 
 	public List<NBSCRTIASSIGNEEDETAILS> convert(List<AssigneeDetails> source,
 			Type<? extends List<NBSCRTIASSIGNEEDETAILS>> destinationType) {
+		logger.info("AssigneeDetailsCustomConverter.convert() start");
 		if (null == source) {
 			return null;
 		}
@@ -48,7 +54,7 @@ public class AssigneeDetailsCustomConverter
 
 		COMMFROM cltDOBX = new COMMFROM();
 		cltDOBX.setCcyy(String.valueOf(cal.get(Calendar.YEAR)));
-		cltDOBX.setMm(String.format(IntegrationConstants.FORMAT_LENGTH_2,cal.get(Calendar.MONTH) + 1));
+		cltDOBX.setMm(String.format(IntegrationConstants.FORMAT_LENGTH_2, cal.get(Calendar.MONTH) + 1));
 		cltDOBX.setDd(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
 		return cltDOBX;
 	}

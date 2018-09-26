@@ -40,18 +40,18 @@
 		<dependency>
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-streaming-core</artifactId>
-			<exclusions>
-				<!-- declare the exclusion here -->
+			<!-- <exclusions>
+				declare the exclusion here
 				<exclusion>
 					<groupId>log4j</groupId>
 					<artifactId>log4j</artifactId>
 				</exclusion>
-				<!-- declare the exclusion here -->
+				declare the exclusion here
 				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-log4j12</artifactId>
 				</exclusion>
-			</exclusions>
+			</exclusions> -->
 		</dependency>
 
 		<!-- ESB Services -->

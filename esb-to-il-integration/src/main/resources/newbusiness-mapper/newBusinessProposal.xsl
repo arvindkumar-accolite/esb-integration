@@ -163,11 +163,11 @@
 	</xsl:template>
 	<xsl:template match="NBSCRTI_APPLY_CASH">
 		<xsl:copy-of select="." />
-		<!-- <NBSCRTI_QUESTION>
+		<NBSCRTI_QUESTION>
 			<QUESTION_ENTID />
 			<QUESTION_PARENT />
 			<ANSWER />
-		</NBSCRTI_QUESTION> -->
+		</NBSCRTI_QUESTION>
 		<NBSCRTI_DOCTOR>
 			<DOCTOR_ENTID />
 			<DOCTOR_PARENT />

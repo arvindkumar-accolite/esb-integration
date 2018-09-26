@@ -3,6 +3,9 @@ package com.pru.mapper.customconverter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.pru.model.esb.BeneficiaryDetails;
 import com.pru.model.il.NBSCRTIREC.BENEFICIARY.NBSCRTIBENDETAILS;
 import com.pru.model.il.NBSCRTIREC.BENEFICIARY.NBSCRTIBENDETAILS.EFFDATE;
@@ -11,9 +14,10 @@ import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;
 
 public class BeneficiaryDetailsCustomConverter extends CustomConverter<List<BeneficiaryDetails>, List<NBSCRTIBENDETAILS>>{
-
+	private final static Logger logger = LoggerFactory.getLogger(AssigneeDetailsCustomConverter.class);
 	public List<NBSCRTIBENDETAILS> convert(List<BeneficiaryDetails> source,
 			Type<? extends List<NBSCRTIBENDETAILS>> destinationType) {
+		logger.info("BeneficiaryDetailsCustomConverter.convert() start");
 		if (null == source) {
 			return null;
 		}

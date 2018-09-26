@@ -1,8 +1,7 @@
 package com.pru.mapper.impl;
 
 import java.util.Map;
-
-import org.apache.flink.api.java.utils.ParameterTool;
+import java.util.Properties;
 
 import com.pru.config.PropertyLoader;
 import com.pru.constant.NewBusinessMapperConstants;
@@ -28,32 +27,44 @@ import ma.glasnost.orika.impl.DefaultMapperFactory;
 import ma.glasnost.orika.metadata.ClassMapBuilder;
 
 /**
- * @param <S>
- *            // * //
+ * @param <S> // * //
  */
 public class OrikaModelNewBusinessMapperImpl implements ModelMapper {
 
-	private ParameterTool newBizParameters;
+	private Properties newBizParameters;
 	private MapperFacade mapper;
 	MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
 	ConverterFactory converterFactory = mapperFactory.getConverterFactory();
 
 	public OrikaModelNewBusinessMapperImpl() {
-		newBizParameters=PropertyLoader.getNewBizProposalCustomPropConfig();
-		converterFactory.registerConverter(NewBusinessMapperConstants.ASSIGNEE_KEY, new AssigneeDetailsCustomConverter());
-		converterFactory.registerConverter(NewBusinessMapperConstants.BENEFICIARY_KEY, new BeneficiaryDetailsCustomConverter());
-		converterFactory.registerConverter(NewBusinessMapperConstants.CLIENT_DETAILS_KEY, new ClientDetailsCustomConvertor());
-		converterFactory.registerConverter(NewBusinessMapperConstants.COVERAGE_DETAILS_KEY, new CoverageDetailsCustomConverter());
-		converterFactory.registerConverter(NewBusinessMapperConstants.LIFE_DETAILS_KEY, new LifeDetailsCustomConverter());
-		converterFactory.registerConverter(NewBusinessMapperConstants.RIDER_DETAILS_KEY, new RiderDetailsCustomConverter());
-		converterFactory.registerConverter(NewBusinessMapperConstants.QUESTION_DETAILS_KEY, new QuestionDetailsCustomConverter());
+		newBizParameters = PropertyLoader.getNewBizProposalCustomPropConfig();
+		converterFactory.registerConverter(NewBusinessMapperConstants.ASSIGNEE_KEY,
+				new AssigneeDetailsCustomConverter());
+		converterFactory.registerConverter(NewBusinessMapperConstants.BENEFICIARY_KEY,
+				new BeneficiaryDetailsCustomConverter());
+		converterFactory.registerConverter(NewBusinessMapperConstants.CLIENT_DETAILS_KEY,
+				new ClientDetailsCustomConvertor());
+		converterFactory.registerConverter(NewBusinessMapperConstants.COVERAGE_DETAILS_KEY,
+				new CoverageDetailsCustomConverter());
+		converterFactory.registerConverter(NewBusinessMapperConstants.LIFE_DETAILS_KEY,
+				new LifeDetailsCustomConverter());
+		converterFactory.registerConverter(NewBusinessMapperConstants.RIDER_DETAILS_KEY,
+				new RiderDetailsCustomConverter());
+		converterFactory.registerConverter(NewBusinessMapperConstants.QUESTION_DETAILS_KEY,
+				new QuestionDetailsCustomConverter());
+		converterFactory.registerConverter(NewBusinessMapperConstants.PROPOSAL_DATE_KEY,
+				new ProposalDateCustomConvertor());
+		converterFactory.registerConverter(NewBusinessMapperConstants.ORIGINAL_COMMENCEMENT_DATE_KEY,
+				new OriginalCommencementDateCustomConvertor());
 
-		converterFactory.registerConverter(NewBusinessMapperConstants.BANK_DETAILS_DATE_FROM_KEY, new BankDetailsDateFromCustomConverter());
-		converterFactory.registerConverter(NewBusinessMapperConstants.BILLING_RENEWAL_DATE_KEY, new BillingRenewalDateCustomConverter());
-		converterFactory.registerConverter(NewBusinessMapperConstants.MANDATORY_EFFECTIVE_DATE_KEY, new MandatoryEffectiveDateCustomConvertor());
-		converterFactory.registerConverter(NewBusinessMapperConstants.PREMINUM_TRANSACTION_DATE_KEY, new PreminumTransactionDateCustomConvertor());
-		converterFactory.registerConverter(NewBusinessMapperConstants.PROPOSAL_DATE_KEY, new ProposalDateCustomConvertor());
-		converterFactory.registerConverter(NewBusinessMapperConstants.ORIGINAL_COMMENCEMENT_DATE_KEY, new OriginalCommencementDateCustomConvertor());
+		converterFactory.registerConverter(NewBusinessMapperConstants.BANK_DETAILS_DATE_FROM_KEY,
+				new BankDetailsDateFromCustomConverter());
+		converterFactory.registerConverter(NewBusinessMapperConstants.BILLING_RENEWAL_DATE_KEY,
+				new BillingRenewalDateCustomConverter());
+		converterFactory.registerConverter(NewBusinessMapperConstants.MANDATORY_EFFECTIVE_DATE_KEY,
+				new MandatoryEffectiveDateCustomConvertor());
+		converterFactory.registerConverter(NewBusinessMapperConstants.PREMINUM_TRANSACTION_DATE_KEY,
+				new PreminumTransactionDateCustomConvertor());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -65,20 +76,47 @@ public class OrikaModelNewBusinessMapperImpl implements ModelMapper {
 				classMapBilder.field(enrty.getKey(), enrty.getValue());
 			}
 		}
-	    classMapBilder.fieldMap(newBizParameters.get(NewBusinessMapperConstants.ASSIGNEE_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.ASSIGNEE_TRG_PATH)).converter(NewBusinessMapperConstants.ASSIGNEE_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.BENEFICIARY_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.BENEFICIARY_TRG_PATH)).converter(NewBusinessMapperConstants.BENEFICIARY_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.CLIENT_DETAILS_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.CLIENT_DETAILS_TRG_PATH)).converter(NewBusinessMapperConstants.CLIENT_DETAILS_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.COVERAGE_DETAILS_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.COVERAGE_DETAILS_TRG_PATH)).converter(NewBusinessMapperConstants.COVERAGE_DETAILS_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.LIFE_DETAILS_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.LIFE_DETAILS_TRG_PATH)).converter(NewBusinessMapperConstants.LIFE_DETAILS_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.RIDER_DETAILS_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.RIDER_DETAILS_TRG_PATH)).converter(NewBusinessMapperConstants.RIDER_DETAILS_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.QUESTION_DETAILS_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.QUESTION_DETAILS_TRG_PATH)).converter(NewBusinessMapperConstants.QUESTION_DETAILS_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.BANK_DETAILS_DATE_FROM_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.BANK_DETAILS_DATE_FROM_TRG_PATH)).converter(NewBusinessMapperConstants.BANK_DETAILS_DATE_FROM_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.BILLING_RENEWAL_DATE_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.BILLING_RENEWAL_DATE_TRG_PATH)).converter(NewBusinessMapperConstants.BILLING_RENEWAL_DATE_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.MANDATORY_EFFECTIVE_DATE_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.MANDATORY_EFFECTIVE_DATE_TRG_PATH)).converter(NewBusinessMapperConstants.MANDATORY_EFFECTIVE_DATE_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.PREMINUM_TRANSACTION_DATE_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.PREMINUM_TRANSACTION_DATE_TRG_PATH)).converter(NewBusinessMapperConstants.PREMINUM_TRANSACTION_DATE_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.PROPOSAL_DATE_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.PROPOSAL_DATE_TRG_PATH)).converter(NewBusinessMapperConstants.PROPOSAL_DATE_KEY).add()
-			.fieldMap(newBizParameters.get(NewBusinessMapperConstants.ORIGINAL_COMMENCEMENT_DATE_SRC_PATH), newBizParameters.get(NewBusinessMapperConstants.ORIGINAL_COMMENCEMENT_DATE_TRG_PATH)).converter(NewBusinessMapperConstants.ORIGINAL_COMMENCEMENT_DATE_KEY).add()
-			.byDefault().register();
+		classMapBilder
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.ASSIGNEE_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.ASSIGNEE_TRG_PATH))
+				.converter(NewBusinessMapperConstants.ASSIGNEE_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.BENEFICIARY_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.BENEFICIARY_TRG_PATH))
+				.converter(NewBusinessMapperConstants.BENEFICIARY_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.CLIENT_DETAILS_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.CLIENT_DETAILS_TRG_PATH))
+				.converter(NewBusinessMapperConstants.CLIENT_DETAILS_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.COVERAGE_DETAILS_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.COVERAGE_DETAILS_TRG_PATH))
+				.converter(NewBusinessMapperConstants.COVERAGE_DETAILS_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.LIFE_DETAILS_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.LIFE_DETAILS_TRG_PATH))
+				.converter(NewBusinessMapperConstants.LIFE_DETAILS_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.RIDER_DETAILS_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.RIDER_DETAILS_TRG_PATH))
+				.converter(NewBusinessMapperConstants.RIDER_DETAILS_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.QUESTION_DETAILS_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.QUESTION_DETAILS_TRG_PATH))
+				.converter(NewBusinessMapperConstants.QUESTION_DETAILS_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.PROPOSAL_DATE_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.PROPOSAL_DATE_TRG_PATH))
+				.converter(NewBusinessMapperConstants.PROPOSAL_DATE_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.ORIGINAL_COMMENCEMENT_DATE_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.ORIGINAL_COMMENCEMENT_DATE_TRG_PATH))
+				.converter(NewBusinessMapperConstants.ORIGINAL_COMMENCEMENT_DATE_KEY).add()
+
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.BANK_DETAILS_DATE_FROM_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.BANK_DETAILS_DATE_FROM_TRG_PATH))
+				.converter(NewBusinessMapperConstants.BANK_DETAILS_DATE_FROM_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.BILLING_RENEWAL_DATE_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.BILLING_RENEWAL_DATE_TRG_PATH))
+				.converter(NewBusinessMapperConstants.BILLING_RENEWAL_DATE_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.MANDATORY_EFFECTIVE_DATE_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.MANDATORY_EFFECTIVE_DATE_TRG_PATH))
+				.converter(NewBusinessMapperConstants.MANDATORY_EFFECTIVE_DATE_KEY).add()
+				.fieldMap(newBizParameters.getProperty(NewBusinessMapperConstants.PREMINUM_TRANSACTION_DATE_SRC_PATH),
+						newBizParameters.getProperty(NewBusinessMapperConstants.PREMINUM_TRANSACTION_DATE_TRG_PATH))
+				.converter(NewBusinessMapperConstants.PREMINUM_TRANSACTION_DATE_KEY).add().byDefault().register();
 		mapper = mapperFactory.getMapperFacade();
 		return mapper.map(source, targetClass);
 	}

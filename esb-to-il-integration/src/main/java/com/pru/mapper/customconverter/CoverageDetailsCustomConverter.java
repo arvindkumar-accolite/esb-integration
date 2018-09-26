@@ -3,6 +3,9 @@ package com.pru.mapper.customconverter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.pru.model.esb.CoverageDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICOVERAGEDETAILS;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICOVERAGEDETAILS.COVRPCESDTE;
@@ -12,10 +15,13 @@ import com.pru.model.il.NBSCRTIREC.NBSCRTICOVERAGEDETAILS.COVRRUNDTE;
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;
 
-public class CoverageDetailsCustomConverter extends CustomConverter<List<CoverageDetails>, List<NBSCRTICOVERAGEDETAILS>>{
+public class CoverageDetailsCustomConverter
+		extends CustomConverter<List<CoverageDetails>, List<NBSCRTICOVERAGEDETAILS>> {
+	private final static Logger logger = LoggerFactory.getLogger(AssigneeDetailsCustomConverter.class);
 
 	public List<NBSCRTICOVERAGEDETAILS> convert(List<CoverageDetails> source,
 			Type<? extends List<NBSCRTICOVERAGEDETAILS>> destinationType) {
+		logger.info("CoverageDetailsCustomConverter.convert() start");
 		if (null == source) {
 			return null;
 		}
@@ -43,20 +49,20 @@ public class CoverageDetailsCustomConverter extends CustomConverter<List<Coverag
 	}
 
 	public COVRPCESDTE convertCOVRPCESDate(String source) {
-		/*Date date = null;
-		try {
-			date = new SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);*/
+		/*
+		 * Date date = null; try { date = new
+		 * SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source); } catch
+		 * (ParseException e) { e.printStackTrace(); } Calendar cal =
+		 * Calendar.getInstance(); cal.setTime(date);
+		 */
 
 		COVRPCESDTE prmCesDate = new COVRPCESDTE();
-		/*prmCesDate.setCCYY(String.valueOf(cal.get(Calendar.YEAR)));
-		prmCesDate.setMM(String.format(IntegrationConstants.FORMAT_LENGTH_2, cal.get(Calendar.MONTH) + 1));
-		prmCesDate.setDD(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
-		*/
+		/*
+		 * prmCesDate.setCCYY(String.valueOf(cal.get(Calendar.YEAR)));
+		 * prmCesDate.setMM(String.format(IntegrationConstants.FORMAT_LENGTH_2,
+		 * cal.get(Calendar.MONTH) + 1));
+		 * prmCesDate.setDD(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+		 */
 		prmCesDate.setCCYY("9999");
 		prmCesDate.setMM("99");
 		prmCesDate.setDD("99");
@@ -64,20 +70,20 @@ public class CoverageDetailsCustomConverter extends CustomConverter<List<Coverag
 	}
 
 	public COVRRCESDTE convertRiskCessDate(String source) {
-		/*Date date = null;
-		try {
-			date = new SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);*/
+		/*
+		 * Date date = null; try { date = new
+		 * SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source); } catch
+		 * (ParseException e) { e.printStackTrace(); } Calendar cal =
+		 * Calendar.getInstance(); cal.setTime(date);
+		 */
 
 		COVRRCESDTE riskCessDate = new COVRRCESDTE();
-		/*riskCessDate.setCCYY(String.valueOf(cal.get(Calendar.YEAR)));
-		riskCessDate.setMM(String.format(IntegrationConstants.FORMAT_LENGTH_2, cal.get(Calendar.MONTH) + 1));
-		riskCessDate.setDD(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
-		*/
+		/*
+		 * riskCessDate.setCCYY(String.valueOf(cal.get(Calendar.YEAR)));
+		 * riskCessDate.setMM(String.format(IntegrationConstants.FORMAT_LENGTH_2,
+		 * cal.get(Calendar.MONTH) + 1));
+		 * riskCessDate.setDD(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+		 */
 		riskCessDate.setCCYY("9999");
 		riskCessDate.setMM("99");
 		riskCessDate.setDD("99");
@@ -85,20 +91,20 @@ public class CoverageDetailsCustomConverter extends CustomConverter<List<Coverag
 	}
 
 	public COVRRUNDTE convertCOVRRUNDate(String source) {
-		/*Date date = null;
-		try {
-			date = new SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);*/
+		/*
+		 * Date date = null; try { date = new
+		 * SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source); } catch
+		 * (ParseException e) { e.printStackTrace(); } Calendar cal =
+		 * Calendar.getInstance(); cal.setTime(date);
+		 */
 
 		COVRRUNDTE covDate = new COVRRUNDTE();
-		/*covDate.setCCYY(String.valueOf(cal.get(Calendar.YEAR)));
-		covDate.setMM(String.format(IntegrationConstants.FORMAT_LENGTH_2, cal.get(Calendar.MONTH) + 1));
-		covDate.setDD(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
-		*/
+		/*
+		 * covDate.setCCYY(String.valueOf(cal.get(Calendar.YEAR)));
+		 * covDate.setMM(String.format(IntegrationConstants.FORMAT_LENGTH_2,
+		 * cal.get(Calendar.MONTH) + 1));
+		 * covDate.setDD(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+		 */
 		covDate.setCCYY("9999");
 		covDate.setMM("99");
 		covDate.setDD("99");

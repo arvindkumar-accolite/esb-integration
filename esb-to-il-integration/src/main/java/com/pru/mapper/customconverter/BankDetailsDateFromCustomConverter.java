@@ -1,27 +1,19 @@
 package com.pru.mapper.customconverter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.pru.model.il.NBSCRTIREC.NBSCRTIBANKDETAILS.DATEFROM;
 
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;
 
 public class BankDetailsDateFromCustomConverter extends CustomConverter<String, DATEFROM> {
+	private final static Logger logger = LoggerFactory.getLogger(AssigneeDetailsCustomConverter.class);
 
 	public DATEFROM convert(String source, Type<? extends DATEFROM> destinationType) {
-/*		Date date = null;
-		try {
-			date = new SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);
-*/
+		logger.info("BankDetailsDateFromCustomConverter.convert() start");
 		DATEFROM dateFrom = new DATEFROM();
-		/*dateFrom.setCcyy(String.valueOf(cal.get(Calendar.YEAR)));
-		dateFrom.setMm(String.format(IntegrationConstants.FORMAT_LENGTH_2,cal.get(Calendar.MONTH) + 1));
-		dateFrom.setDd(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
-		*/
 		dateFrom.setCcyy("9999");
 		dateFrom.setMm("99");
 		dateFrom.setDd("99");

@@ -1,8 +1,7 @@
 package com.pru.mapper.impl;
 
 import java.util.Map;
-
-import org.apache.flink.api.java.utils.ParameterTool;
+import java.util.Properties;
 
 import com.pru.config.PropertyLoader;
 import com.pru.constant.ClientMapperConstants;
@@ -17,12 +16,11 @@ import ma.glasnost.orika.impl.DefaultMapperFactory;
 import ma.glasnost.orika.metadata.ClassMapBuilder;
 
 /**
- * @param <S>
- *            // * //
+ * @param <S> // * //
  */
 public class OrikaModelClientMapperImpl implements ModelMapper {
 	private MapperFacade mapper;
-	private ParameterTool clientParameters;
+	private Properties clientParameters;
 	MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
 	ConverterFactory converterFactory = mapperFactory.getConverterFactory();
 
@@ -41,8 +39,8 @@ public class OrikaModelClientMapperImpl implements ModelMapper {
 			}
 		}
 		classMapBilder
-				.fieldMap(clientParameters.get(ClientMapperConstants.DATE_OF_BIRTH_SRC_PATH),
-						clientParameters.get(ClientMapperConstants.CLTDOBX_TRG_PATH))
+				.fieldMap(clientParameters.getProperty(ClientMapperConstants.DATE_OF_BIRTH_SRC_PATH),
+						clientParameters.getProperty(ClientMapperConstants.CLTDOBX_TRG_PATH))
 				.converter(IntegrationConstants.CUSTOM_CONVERTER_ID).add().byDefault().register();
 		mapper = mapperFactory.getMapperFacade();
 		return mapper.map(source, targetClass);

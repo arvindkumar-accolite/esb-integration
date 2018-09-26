@@ -1,8 +1,9 @@
 package com.pru.config;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
-import org.apache.flink.api.java.utils.ParameterTool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,48 +11,51 @@ import com.pru.constant.IntegrationConstants;
 
 public class PropertyLoader {
 	private final static Logger logger = LoggerFactory.getLogger(PropertyLoader.class);
-	private static ParameterTool policyProposalPropConfig; 
-	private static ParameterTool flinkPropConfig;
-	private static String basePath;
+	private static Properties policyProposalPropConfig = new Properties();
+	private static Properties flinkPropConfig = new Properties();
+	static InputStream input = null;
+	private static PropertyLoader instance = new PropertyLoader();
 
-	public PropertyLoader(String path) {
-		basePath = path;
-		loadProperties(path);
+	public static PropertyLoader getInstance() {
+		return instance;
 	}
 
-	private void loadProperties(String path) {
-		logger.info("PropertyLoader start");
+	static {
+		String filename = IntegrationConstants.NBS_MAPPING_PROPERTIES;
+		logger.info("PropertyLoader start: " + filename);
+		input = PropertyLoader.class.getClassLoader().getResourceAsStream(filename);
 		try {
-			policyProposalPropConfig = ParameterTool
-					.fromPropertiesFile(path + IntegrationConstants.NBS_MAPPING_PROPERTIES);
-			flinkPropConfig = ParameterTool
-					.fromPropertiesFile(path + IntegrationConstants.FLINK_CONFIG_PROPERTIES);
-			
+			policyProposalPropConfig.load(input);
+			input.close();
 		} catch (IOException e) {
-			logger.error("Error while loading property in PropertyLoader :: {}",e);
-			e.printStackTrace();
+			logger.error("Error while loading property in PropertyLoader :: {}", e);
+		}
+	}
+
+	static {
+		String filename = IntegrationConstants.FLINK_CONFIG_PROPERTIES;
+		logger.info("PropertyLoader start: " + filename);
+		input = PropertyLoader.class.getClassLoader().getResourceAsStream(filename);
+		try {
+			flinkPropConfig.load(input);
+			input.close();
+		} catch (IOException e) {
+			logger.error("Error while loading property in PropertyLoader :: {}", e);
 		}
 	}
 
 	/**
 	 * @return the policyProposalPropConfig
 	 */
-	public static ParameterTool getPolicyProposalPropConfig() {
+	public static Properties getPolicyProposalPropConfig() {
 		return policyProposalPropConfig;
-	}
-
-	/**
-	 * @return the basePath
-	 */
-	public static String getBasePath() {
-		return basePath;
 	}
 
 	/**
 	 * @return the flinkPropConfig
 	 */
-	public static ParameterTool getFlinkPropConfig() {
+	public static Properties getFlinkPropConfig() {
 		return flinkPropConfig;
 	}
-	
+
 }

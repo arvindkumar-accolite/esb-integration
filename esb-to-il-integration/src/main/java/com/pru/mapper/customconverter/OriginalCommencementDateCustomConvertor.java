@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.pru.constant.IntegrationConstants;
 import com.pru.model.il.NBSCRTIREC.NBSCRTICONTRACTHDRDETAILS.OCCDATE;
 
@@ -12,8 +15,10 @@ import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;
 
 public class OriginalCommencementDateCustomConvertor extends CustomConverter<String, OCCDATE> {
+	private final static Logger logger = LoggerFactory.getLogger(AssigneeDetailsCustomConverter.class);
 
 	public OCCDATE convert(String source, Type<? extends OCCDATE> destinationType) {
+		logger.info("OriginalCommencementDateCustomConvertor.convert() start");
 		Date date = null;
 		try {
 			date = new SimpleDateFormat(IntegrationConstants.CLTDOBX_FORMAT).parse(source);

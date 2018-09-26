@@ -7,6 +7,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.pru.constant.IntegrationConstants;
 import com.pru.model.esb.RiderDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTIRIDERDETAILS;
@@ -17,9 +20,11 @@ import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;
 
 public class RiderDetailsCustomConverter extends CustomConverter<List<RiderDetails>, List<NBSCRTIRIDERDETAILS>> {
+	private final static Logger logger = LoggerFactory.getLogger(AssigneeDetailsCustomConverter.class);
 
 	public List<NBSCRTIRIDERDETAILS> convert(List<RiderDetails> source,
 			Type<? extends List<NBSCRTIRIDERDETAILS>> destinationType) {
+		logger.info("RiderDetailsCustomConverter.convert() start");
 		if (null == source) {
 			return null;
 		}
@@ -33,6 +38,8 @@ public class RiderDetailsCustomConverter extends CustomConverter<List<RiderDetai
 			targetRiderDetails.setCOVRMORTCLS(riderDetails.getMortalityClass());
 			targetRiderDetails.setCOVRPCESSAGE(riderDetails.getPremiumCessationAge());
 			targetRiderDetails.setCOVRPCESSTRM(riderDetails.getPremiumCessationTerm());
+			targetRiderDetails.setCOVRRCESSAGE(riderDetails.getRiskCessationAge());
+			targetRiderDetails.setCOVRRCESSTRM(riderDetails.getRiskCessationTerm());
 			targetRiderDetails.setCOVRSUMIN(riderDetails.getSumInsured());
 			targetRiders.add(targetRiderDetails);
 		}

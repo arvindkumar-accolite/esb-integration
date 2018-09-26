@@ -7,6 +7,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.pru.constant.IntegrationConstants;
 import com.pru.model.esb.LifeDetails;
 import com.pru.model.il.NBSCRTIREC.NBSCRTILIVES;
@@ -15,10 +18,11 @@ import com.pru.model.il.NBSCRTIREC.NBSCRTILIVES.DOB;
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.metadata.Type;
 
-public class LifeDetailsCustomConverter extends CustomConverter<List<LifeDetails>, List<NBSCRTILIVES>>{
+public class LifeDetailsCustomConverter extends CustomConverter<List<LifeDetails>, List<NBSCRTILIVES>> {
+	private final static Logger logger = LoggerFactory.getLogger(AssigneeDetailsCustomConverter.class);
 
-	public List<NBSCRTILIVES> convert(List<LifeDetails> source,
-			Type<? extends List<NBSCRTILIVES>> destinationType) {
+	public List<NBSCRTILIVES> convert(List<LifeDetails> source, Type<? extends List<NBSCRTILIVES>> destinationType) {
+		logger.info("LifeDetailsCustomConverter.convert() start");
 		if (null == source) {
 			return null;
 		}
@@ -40,7 +44,7 @@ public class LifeDetailsCustomConverter extends CustomConverter<List<LifeDetails
 		}
 		return targetlifeDetails;
 	}
-	
+
 	public DOB convertDob(String source) {
 		Date date = null;
 		try {

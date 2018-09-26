@@ -1,5 +1,6 @@
 package com.pru.flink.consumer;
 
+import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
@@ -7,12 +8,15 @@ import org.apache.flink.api.common.serialization.DeserializationSchema;
 import org.apache.flink.api.common.serialization.SerializationSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.java.typeutils.TypeExtractor;
-import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer010;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer011;
 import org.apache.flink.util.Collector;
+import org.apache.kafka.clients.CommonClientConfigs;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.config.SaslConfigs;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pru.config.PropertyLoader;
@@ -26,13 +30,11 @@ import com.pru.service.impl.ESBServiceImpl;
  *
  */
 public class FlinkJsonConsumer {
-	static ParameterTool flinkPropConfig;
-	static String path;
+	static Properties flinkPropConfig = new Properties();
 
-	public static void main(String[] args) {
-		loadPath(args);
-		new PropertyLoader(path);
+	public static void main(String[] args) throws IOException {
 		flinkPropConfig = PropertyLoader.getFlinkPropConfig();
+//		flinkPropConfig.load(FlinkJsonConsumer.class.getClassLoader().getResourceAsStream("config.properties"));
 		try {
 			System.out.println("in kafka reader main");
 			FlinkJsonConsumer flinkJsonConsumer = new FlinkJsonConsumer();
@@ -43,38 +45,39 @@ public class FlinkJsonConsumer {
 		}
 	}
 
-	private static void loadPath(String[] args) {
-		final ParameterTool params = ParameterTool.fromArgs(args);
-		path = params.get(IntegrationConstants.RESOURCE_PATH);
-	}
-
 	private void kafkaReader() throws Exception {
 		System.out.println("insider reader");
-		
+
 		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 		env.setParallelism(1);
-		
-		FlinkKafkaConsumer010<String> flinkKafkaConsumer = getFlinkKafkaConsumer010();
+
+		FlinkKafkaConsumer010<String> flinkKafkaConsumer = getFlinkKafkaConsumer011();
 		DataStream<String> messageStream = env.addSource(flinkKafkaConsumer);
-		
+
 		FlinkKafkaProducer011<String> myProducer = new FlinkKafkaProducer011<String>(
-				flinkPropConfig.get(IntegrationConstants.BOOTSTRAP_SERVER),
-				flinkPropConfig.get(IntegrationConstants.NBS_PROPSAL_TOPIC), new SimpleStringSchema());
-		
+				flinkPropConfig.getProperty(IntegrationConstants.BOOTSTRAP_SERVER),
+				flinkPropConfig.getProperty(IntegrationConstants.NBS_PROPSAL_TOPIC), new SimpleStringSchema());
+
 		messageStream.flatMap(new FlatMapFunction<String, NewBusinessModel>() {
 			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void flatMap(String value, Collector<NewBusinessModel> out) throws Exception {
+				System.out.println("flink 1a value" + value);
 				ESBService esbService = new ESBServiceImpl();
 				out.collect(esbService.generateNBSModel(value));
+				// System.out.println("flink 1a value" + esbService.generateNBSModel(value));
 			}
 		}).flatMap(new FlatMapFunction<NewBusinessModel, String>() {
 			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void flatMap(NewBusinessModel value, Collector<String> out) throws Exception {
+				// System.out.println("flink 1b value" + value);
 				ObjectMapper mapper = new ObjectMapper();
 				out.collect(mapper.writeValueAsString(value));
 				System.out.println(mapper.writeValueAsString(value));
+				// System.out.println("flink 1b value" + mapper.writeValueAsString(value));
 			}
 		}).addSink(myProducer);
 
@@ -82,15 +85,21 @@ public class FlinkJsonConsumer {
 
 	}
 
-	private FlinkKafkaConsumer010<String> getFlinkKafkaConsumer010() {
+	private FlinkKafkaConsumer011<String> getFlinkKafkaConsumer011() {
 		Properties prop = new Properties();
+//		prop.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
+//				flinkPropConfig.getProperty(IntegrationConstants.BOOTSTRAP_SERVER));
+//		prop.setProperty(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG,
+//				flinkPropConfig.getProperty(IntegrationConstants.SECURITY_PROTOCOL_CONFIG));
+//		prop.setProperty(SaslConfigs.SASL_MECHANISM, flinkPropConfig.getProperty(IntegrationConstants.SASL_MECHANISM));
+
 		prop.setProperty(IntegrationConstants.BOOTSTRAP_SERVER,
-				flinkPropConfig.get(IntegrationConstants.BOOTSTRAP_SERVER));
+				flinkPropConfig.getProperty(IntegrationConstants.BOOTSTRAP_SERVER));
 		prop.setProperty(IntegrationConstants.ZOOKEEPER_CONNECT,
-				flinkPropConfig.get(IntegrationConstants.ZOOKEEPER_CONNECT));
-		prop.setProperty(IntegrationConstants.GROUP_ID, flinkPropConfig.get(IntegrationConstants.GROUP_ID));
-		FlinkKafkaConsumer010<String> flinkKafkaConsumer = new FlinkKafkaConsumer010<>(
-				flinkPropConfig.get(IntegrationConstants.POLICY_PROPSAL_TOPIC), new SimpleStringSchema(), prop);
+				flinkPropConfig.getProperty(IntegrationConstants.ZOOKEEPER_CONNECT));
+		prop.setProperty(IntegrationConstants.GROUP_ID, flinkPropConfig.getProperty(IntegrationConstants.GROUP_ID));
+		FlinkKafkaConsumer011<String> flinkKafkaConsumer = new FlinkKafkaConsumer011<>(
+				flinkPropConfig.getProperty(IntegrationConstants.POLICY_PROPSAL_TOPIC), new SimpleStringSchema(), prop);
 
 		return flinkKafkaConsumer;
 

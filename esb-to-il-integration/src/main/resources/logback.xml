@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-	<property name="DEV_HOME" value="C:/D/Prudential/dev1/EposToILDemo/ESBToILDemo/esb-to-il-integration/logs" />
+	<property name="DEV_HOME" value="C:/Users/344401/eclipse-workspace/ESBWorkspace/esb-integration/esb-to-il-integration/logs"/>
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
@@ -55,7 +55,7 @@
 	
 	<!-- Send logs to both console and file audit -->
 	<logger name="com.pru" level="debug"
-		additivity="false">
+		additivity="true">
 		<appender-ref ref="FILE-AUDIT" />
 		<appender-ref ref="STDOUT" />
 	</logger>
